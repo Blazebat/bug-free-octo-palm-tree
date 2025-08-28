@@ -15,43 +15,34 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Setup Node.js
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      # Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # Build web assets (your index.html must be in www/ or copied there before sync)
-      - name: Build web
-        run: |
-          mkdir -p www
-          cp index.html www/index.html || true
-
-      # Sync Capacitor
-      - name: Sync Capacitor
-        run: npx cap sync android
-
-      # Setup JDK for Gradle
+      # Setup Java for Gradle
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
-      # Setup Gradle
+      # Setup Gradle cache
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      # Build APK
+      # Make sure Capacitor Android is added
+      - name: Ensure Android platform
+        run: |
+          if [ ! -d "android" ]; then
+            npx cap add android || true
+          fi
+
+      # Sync Capacitor (copies www to Android project)
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      # Build the APK
       - name: Build Debug APK
         working-directory: android
         run: ./gradlew assembleDebug
 
-      # Upload APK as artifact (v4 instead of v3)
+      # Upload artifact (the generated APK)
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:

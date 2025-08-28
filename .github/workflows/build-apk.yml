@@ -1,7 +1,9 @@
 name: Build Android APK
 
 on:
-  workflow_dispatch: # Run manually from GitHub Actions tab
+  workflow_dispatch:   # run manually from GitHub Actions tab
+  push:
+    branches: [ main ] # also runs on every push to main
 
 jobs:
   build:
@@ -12,52 +14,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js (>=20 for Capacitor)
+      # 2. Install Node.js 20 (required for Capacitor 6+)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 3. Install Capacitor CLI
-      - name: Install Capacitor CLI
-        run: npm install @capacitor/cli@latest --save-dev
-
-      # 4. Init Capacitor project (dummy webDir)
-      - name: Init Capacitor
-        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=empty --npm-client=npm
-
-      # 5. Overwrite capacitor.config.json (load from Vercel)
-      - name: Configure Capacitor
+      # 3. Install dependencies
+      - name: Install dependencies
         run: |
-          echo '{
-            "appId": "com.skywatch.app",
-            "appName": "SkyWatch",
-            "webDir": "empty",
-            "server": {
-              "url": "https://skywatch-sigma.vercel.app/",
-              "cleartext": true
-            }
-          }' > capacitor.config.json
+          npm init -y
+          npm install @capacitor/core @capacitor/cli
 
-      # 6. Add Android platform
-      - name: Add Android
+      # 4. Init Capacitor project
+      - name: Init Capacitor
+        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=empty
+
+      # 5. Add Android platform
+      - name: Add Android platform
         run: npx cap add android
 
-      # 7. Setup Java & Gradle
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
-
-      # 8. Build APK
+      # 6. Build APK using Gradle
       - name: Build APK
-        working-directory: android
-        run: ./gradlew assembleDebug
+        run: |
+          cd android
+          ./gradlew assembleDebug
 
-      # 9. Upload APK artifact
+      # 7. Upload APK as artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: SkyWatch-APK
+          name: SkyWatch-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk

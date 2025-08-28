@@ -31,21 +31,28 @@ jobs:
           npm install --legacy-peer-deps
           npm install @capacitor/core @capacitor/cli @capacitor/android --save
 
-      # 5. Init Capacitor
+      # 5. Init Capacitor (skip if already has capacitor.config.json)
       - name: Init Capacitor
-        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
+        run: |
+          if [ ! -f capacitor.config.json ]; then
+            npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
+          fi
 
       # 6. Add Android platform
       - name: Add Android platform
         run: npx cap add android
 
-      # 7. Build Android APK
+      # 7. Sync Capacitor (this creates capacitor.settings.gradle)
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      # 8. Build Android APK
       - name: Build APK
         run: |
           cd android
           ./gradlew assembleDebug
 
-      # 8. Upload APK as artifact
+      # 9. Upload APK as artifact
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:

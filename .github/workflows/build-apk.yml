@@ -1,46 +1,39 @@
 name: Build Android APK
 
 on:
-  workflow_dispatch:   # run manually from GitHub Actions tab
+  workflow_dispatch:
   push:
-    branches: [ main ] # also runs on every push to main
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repo
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Install Node.js 20 (required for Capacitor 6+)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 3. Install dependencies
       - name: Install dependencies
         run: |
           npm init -y
-          npm install @capacitor/core @capacitor/cli
+          npm install @capacitor/core @capacitor/cli @capacitor/android
 
-      # 4. Init Capacitor project
       - name: Init Capacitor
         run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=empty
 
-      # 5. Add Android platform
       - name: Add Android platform
         run: npx cap add android
 
-      # 6. Build APK using Gradle
       - name: Build APK
         run: |
           cd android
           ./gradlew assembleDebug
 
-      # 7. Upload APK as artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:

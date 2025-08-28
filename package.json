@@ -1,0 +1,10 @@
+{
+  "name": "skywatch",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@capacitor/cli": "^6.1.0",
+    "@capacitor/core": "^6.1.0",
+    "@capacitor/android": "^6.1.0"
+  }
+}

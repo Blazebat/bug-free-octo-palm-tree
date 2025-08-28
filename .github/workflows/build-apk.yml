@@ -1,55 +1,44 @@
-name: Build Android APK + Run Bash
+name: Build WebView APK
 
 on:
-  workflow_dispatch:    # run manually
+  workflow_dispatch:
   push:
-    branches: [ main ]  # also runs on push to main
+    branches: [ main ]
 
 jobs:
   build-apk:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # --- Run your custom bash commands ---
-      - name: Run custom bash commands
-        run: |
-          echo "Running bash inside GitHub Action..."
-          git clone https://github.com/Blazebat/bug-free-octo-palm-tree.git
-          cd bug-free-octo-palm-tree
-          echo "Now inside: $(pwd)"
-          ls -la
-
-      # --- Set up Node.js ---
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      # --- Set up Java JDK (needed for Android build) ---
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
-      # --- Install dependencies & prepare Android project ---
-      - name: Install dependencies
-        run: |
-          npm ci || npm install
-          npm install @capacitor/android
-          npx cap sync android
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-      # --- Build debug APK ---
+      - name: Install Capacitor and init Android
+        run: |
+          npm init -y
+          npm install @capacitor/core @capacitor/cli
+          npx cap init "SkyWatch" "com.skywatch.app" --web-dir=.
+
+          # Add Android platform
+          npm install @capacitor/android
+          npx cap add android
+
       - name: Build debug APK
         run: |
           cd android
           ./gradlew assembleDebug
 
-      # --- Upload APK as artifact ---
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:

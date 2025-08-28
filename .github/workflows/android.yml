@@ -39,26 +39,35 @@ jobs:
             cp index.html www/index.html
           fi
 
-      # ✅ Initialize Capacitor if needed
+      # ✅ Init Capacitor if missing
       - name: Init Capacitor
         run: |
           if [ ! -f capacitor.config.json ]; then
             npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
           fi
 
-      # ✅ Add Android platform if missing
-      - name: Add Android platform
+      # ✅ Add Android if missing
+      - name: Add Android
         run: |
           if [ ! -d android ]; then
             npx cap add android
           fi
 
-      # ✅ Sync Capacitor (generate configs)
+      # ✅ Sync Capacitor
       - name: Sync Capacitor
         run: |
           npx cap sync android
 
-      # ✅ Fix missing capacitor.settings.gradle (fallback)
+      # ✅ Patch settings.gradle BEFORE build
+      - name: Patch settings.gradle
+        run: |
+          SETTINGS_FILE=android/settings.gradle
+          if grep -q "capacitor.settings.gradle" "$SETTINGS_FILE"; then
+            echo "⚡ Patching $SETTINGS_FILE to avoid missing file crash..."
+            sed -i "s/apply from: 'capacitor.settings.gradle'/if (file('capacitor.settings.gradle').exists()) apply from: 'capacitor.settings.gradle'/" "$SETTINGS_FILE"
+          fi
+
+      # ✅ Ensure capacitor.settings.gradle exists (fallback)
       - name: Ensure capacitor.settings.gradle
         run: |
           if [ ! -f android/capacitor.settings.gradle ]; then

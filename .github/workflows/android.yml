@@ -12,13 +12,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Set up Node.js
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # 3. Set up Java & Android SDK
+      # 3. Setup Java & Android SDK
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
@@ -31,18 +31,21 @@ jobs:
           npm install --legacy-peer-deps
           npm install @capacitor/core @capacitor/cli @capacitor/android --save
 
-      # 5. Init Capacitor (skip if already has capacitor.config.json)
+      # 5. Init Capacitor (point web-dir to root instead of www)
       - name: Init Capacitor
         run: |
           if [ ! -f capacitor.config.json ]; then
-            npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
+            npx cap init "SkyWatch" "com.skywatch.app" --web-dir=.
           fi
 
-      # 6. Add Android platform
+      # 6. Add Android platform (only first time)
       - name: Add Android platform
-        run: npx cap add android
+        run: |
+          if [ ! -d android ]; then
+            npx cap add android
+          fi
 
-      # 7. Sync Capacitor (this creates capacitor.settings.gradle)
+      # 7. Sync Capacitor (this generates capacitor.settings.gradle)
       - name: Sync Capacitor
         run: npx cap sync android
 
@@ -52,7 +55,7 @@ jobs:
           cd android
           ./gradlew assembleDebug
 
-      # 9. Upload APK as artifact
+      # 9. Upload APK artifact
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:

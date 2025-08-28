@@ -2,56 +2,52 @@ name: Build Android APK
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # 1. Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
+      # 2. Set up Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      # 3. Set up Java & Android SDK
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v3
         with:
-          distribution: temurin
-          java-version: 17
+          distribution: "temurin"
+          java-version: "17"
 
+      # 4. Install dependencies
       - name: Install dependencies
         run: |
-          npm init -y
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          npm install --legacy-peer-deps
+          npm install @capacitor/core @capacitor/cli @capacitor/android --save
 
-      - name: Prepare web assets
-        run: |
-          mkdir -p www
-          cp index.html www/
-          cp script.js www/
-          cp style.css www/
-
+      # 5. Init Capacitor
       - name: Init Capacitor
-        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www --npm-client=npm
+        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
 
+      # 6. Add Android platform
       - name: Add Android platform
         run: npx cap add android
 
-      - name: Copy web assets
-        run: npx cap copy
-
+      # 7. Build Android APK
       - name: Build APK
         run: |
           cd android
           ./gradlew assembleDebug
 
+      # 8. Upload APK as artifact
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
-          name: SkyWatch-debug-apk
+          name: SkyWatch-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk

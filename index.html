@@ -1,44 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skywatch</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Shaka Player for DASH + ClearKey -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.10.6/shaka-player.compiled.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <img src="logo.png" alt="Skywatch logo" class="brand-logo">
-      <span class="brand-title">Skywatch</span>
-    </div>
-    <div class="top-actions">
-      <input id="search" class="search" type="search" placeholder="Search channels" aria-label="Search channels">
-    </div>
+  <!-- Header -->
+  <header>
+    <img src="logo.png" alt="Skywatch Logo" class="logo" />
+    <h1>Skywatch</h1>
   </header>
 
+  <!-- Fixed Video Player -->
+  <div id="player-container">
+    <video id="videoPlayer" controls autoplay></video>
+  </div>
+
+  <!-- Channels Grid -->
   <main>
-    <!-- Hero player area -->
-    <section class="hero">
-      <div class="player-wrap">
-        <video id="video" playsinline controls autoplay></video>
-        <div id="now-playing" class="now-playing">Loading...</div>
-        <div id="player-error" class="player-error" hidden></div>
-      </div>
-    </section>
-
-    <!-- Channels grid (Netflix-like rows style) -->
-    <section class="channels-section">
-      <h2 class="section-title">Channels</h2>
-      <div id="channel-grid" class="channel-grid" aria-live="polite"></div>
-    </section>
+    <h2>Live Channels</h2>
+    <div id="channels"></div>
   </main>
-
-  <footer class="footer">
-    <small>Skywatch: Powered by RageTV</small>
-  </footer>
 </body>
 </html>

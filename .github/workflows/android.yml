@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
       - name: Install dependencies
         run: |
           npm init -y
@@ -31,7 +37,7 @@ jobs:
           cp style.css www/
 
       - name: Init Capacitor
-        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
+        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www --npm-client=npm
 
       - name: Add Android platform
         run: npx cap add android

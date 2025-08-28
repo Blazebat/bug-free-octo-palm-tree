@@ -1,0 +1,9 @@
+{
+  "appId": "com.skywatch.app",
+  "appName": "SkyWatch",
+  "webDir": "empty",
+  "server": {
+    "url": "https://skywatch-sigma.vercel.app/",
+    "cleartext": true
+  }
+}

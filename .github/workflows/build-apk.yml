@@ -11,50 +11,68 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repo
+      # 1️⃣ Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup Node.js
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # Install dependencies
+      # 3️⃣ Install npm dependencies (Capacitor CLI, Core, Android)
       - name: Install dependencies
         run: npm install
 
-      # Init Capacitor (skip if already initialized)
-      - name: Capacitor Init
+      # 4️⃣ Ensure www folder exists
+      - name: Ensure www folder
         run: |
-          if [ ! -f capacitor.config.json ]; then
-            npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
+          mkdir -p www
+          if [ ! -f www/index.html ]; then
+            echo "<h1>Hello SkyWatch</h1>" > www/index.html
           fi
 
-      # Add Android platform (skip if already exists)
+      # 5️⃣ Ensure Capacitor config exists
+      - name: Ensure capacitor.config.json
+        run: |
+          if [ ! -f capacitor.config.json ]; then
+            echo '{
+              "appId": "com.skywatch.app",
+              "appName": "SkyWatch",
+              "webDir": "www",
+              "bundledWebRuntime": false
+            }' > capacitor.config.json
+          fi
+
+      # 6️⃣ Add Android platform if missing
       - name: Add Android platform
         run: |
           if [ ! -d android ]; then
             npx cap add android
           fi
 
-      # Sync web assets into Android
+      # 7️⃣ Sync web assets into Android
       - name: Sync Capacitor
         run: npx cap sync android
 
-      # Setup Java + Gradle
+      # 8️⃣ Setup Java (needed for Gradle build)
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
-      # Build APK
-      - name: Build APK
-        run: cd android && ./gradlew assembleDebug
+      # 9️⃣ Setup Gradle cache
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
 
-      # Upload artifact (APK)
+      # 🔟 Build the APK
+      - name: Build Debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      # 1️⃣1️⃣ Upload APK artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:

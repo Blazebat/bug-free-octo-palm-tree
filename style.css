@@ -1,9 +1,9 @@
-/* General layout */
+/* General dark theme */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #141414;
-  color: #fff;
+  background: #121212;
+  color: white;
   overflow-x: hidden;
 }
 
@@ -11,14 +11,14 @@ body {
 header {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   height: 60px;
-  background: #000;
+  background: #1e1e1e;
   display: flex;
   align-items: center;
   padding: 0 15px;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
 
 header .logo {
@@ -27,66 +27,68 @@ header .logo {
 }
 
 header h1 {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 20px;
   margin: 0;
+  margin-right: auto;
+}
+
+#searchBar {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
 }
 
 /* Player */
-#player-container {
+.player-container {
   position: fixed;
-  top: 60px; /* under header */
-  width: 100%;
-  background: #000;
+  top: 60px; /* below header */
+  left: 0;
+  right: 0;
+  background: black;
   z-index: 999;
 }
 
 #videoPlayer {
   width: 100%;
-  max-height: 45vh;
-  background: #000;
+  height: 360px;
+  background: black;
 }
 
-/* Channels section */
+/* Channels grid */
 main {
-  margin-top: calc(60px + 45vh); /* offset for header + video */
+  margin-top: 440px; /* leave space for header + player */
   padding: 20px;
-}
-
-main h2 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-/* Channels grid - Netflix style */
-#channels {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 12px;
+  gap: 15px;
 }
 
-.channel {
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s;
+  background: #1e1e1e;
+  padding: 10px;
   border-radius: 8px;
-  overflow: hidden;
 }
 
-.channel:hover {
+.channel-card:hover {
   transform: scale(1.05);
+  background: #272727;
 }
 
-.channel img {
-  width: 100%;
-  height: 80px;
+.channel-card img {
+  width: 80px;
+  height: 60px;
   object-fit: contain;
-  background: #222;
-  display: block;
+  margin-bottom: 8px;
 }
 
-.channel p {
+.channel-card span {
   text-align: center;
-  font-size: 0.9rem;
-  margin: 5px 0 0;
-  color: #aaa;
+  font-size: 14px;
+  color: #ddd;
 }

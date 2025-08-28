@@ -52,7 +52,7 @@ jobs:
             npx cap add android
           fi
 
-      # 7️⃣ Sync Capacitor
+      # 7️⃣ Sync Capacitor web assets
       - name: Sync Capacitor
         run: npx cap sync android
 
@@ -63,21 +63,17 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      # 9️⃣ Setup Gradle cache
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-
-      # 🔟 Ensure gradlew is executable
+      # 9️⃣ Ensure gradlew is executable
       - name: Make gradlew executable
         working-directory: android
         run: chmod +x gradlew
 
-      # 1️⃣1️⃣ Build Debug APK
+      # 🔟 Build the APK using Gradle wrapper
       - name: Build Debug APK
         working-directory: android
         run: ./gradlew assembleDebug
 
-      # 1️⃣2️⃣ Upload APK artifact
+      # 1️⃣1️⃣ Upload APK artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:

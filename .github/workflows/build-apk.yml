@@ -12,13 +12,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
+      # 2. Setup Node.js (>=20 for Capacitor)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
-      # 3. Install Capacitor
+      # 3. Install Capacitor CLI
       - name: Install Capacitor CLI
         run: npm install @capacitor/cli@latest --save-dev
 

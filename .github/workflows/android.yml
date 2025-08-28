@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ Checkout your repo
+      # ✅ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -18,20 +18,20 @@ jobs:
         with:
           node-version: 20
 
-      # ✅ Setup Java 17 (safe for Gradle + Capacitor)
+      # ✅ Setup Java 17
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: "temurin"
           java-version: "17"
 
-      # ✅ Install project dependencies + Capacitor
+      # ✅ Install dependencies
       - name: Install dependencies
         run: |
           npm install --legacy-peer-deps
           npm install @capacitor/core @capacitor/cli @capacitor/android --save
 
-      # ✅ Ensure web assets exist (fixes missing www)
+      # ✅ Ensure web assets exist
       - name: Ensure web folder
         run: |
           mkdir -p www
@@ -39,23 +39,36 @@ jobs:
             cp index.html www/index.html
           fi
 
-      # ✅ Initialize Capacitor if no config exists
+      # ✅ Initialize Capacitor if needed
       - name: Init Capacitor
         run: |
           if [ ! -f capacitor.config.json ]; then
             npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
           fi
 
-      # ✅ Add Android platform if not added
+      # ✅ Add Android platform if missing
       - name: Add Android platform
         run: |
           if [ ! -d android ]; then
             npx cap add android
           fi
 
-      # ✅ Sync (regenerates capacitor.settings.gradle, fixes missing file error)
+      # ✅ Sync Capacitor (generate configs)
       - name: Sync Capacitor
-        run: npx cap sync android --verbose
+        run: |
+          npx cap sync android
+
+      # ✅ Fix missing capacitor.settings.gradle (fallback)
+      - name: Ensure capacitor.settings.gradle
+        run: |
+          if [ ! -f android/capacitor.settings.gradle ]; then
+            echo "⚠️ capacitor.settings.gradle missing, creating fallback..."
+            cat > android/capacitor.settings.gradle <<EOL
+// Auto-generated fallback
+include ':capacitor-android'
+project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/android/capacitor')
+EOL
+          fi
 
       # ✅ Build APK
       - name: Build APK
@@ -64,7 +77,7 @@ jobs:
           ./gradlew clean
           ./gradlew assembleDebug
 
-      # ✅ Upload the APK as artifact
+      # ✅ Upload APK artifact
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:

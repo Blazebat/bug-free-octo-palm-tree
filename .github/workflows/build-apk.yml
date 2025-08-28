@@ -11,40 +11,52 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
-      - name: Checkout code
+      # Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup Java for Gradle
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Init Capacitor (skip if already initialized)
+      - name: Capacitor Init
+        run: |
+          if [ ! -f capacitor.config.json ]; then
+            npx cap init "SkyWatch" "com.skywatch.app" --web-dir=www
+          fi
+
+      # Add Android platform (skip if already exists)
+      - name: Add Android platform
+        run: |
+          if [ ! -d android ]; then
+            npx cap add android
+          fi
+
+      # Sync web assets into Android
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      # Setup Java + Gradle
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
-      # Setup Gradle cache
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+      # Build APK
+      - name: Build APK
+        run: cd android && ./gradlew assembleDebug
 
-      # Make sure Capacitor Android is added
-      - name: Ensure Android platform
-        run: |
-          if [ ! -d "android" ]; then
-            npx cap add android || true
-          fi
-
-      # Sync Capacitor (copies www to Android project)
-      - name: Sync Capacitor
-        run: npx cap sync android
-
-      # Build the APK
-      - name: Build Debug APK
-        working-directory: android
-        run: ./gradlew assembleDebug
-
-      # Upload artifact (the generated APK)
+      # Upload artifact (APK)
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug.apk
+          name: SkyWatch-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk

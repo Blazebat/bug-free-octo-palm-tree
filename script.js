@@ -1,56 +1,62 @@
-// Initialize DASH.js player
-let player;
-
 async function loadChannels() {
-  try {
-    const response = await fetch("./channels.json");
-    const channels = await response.json();
+  const response = await fetch("/api/channels");
+  const channels = await response.json();
 
-    const container = document.getElementById("channels");
-    container.innerHTML = "";
+  // Sort alphabetically
+  channels.sort((a, b) => a.name.localeCompare(b.name));
 
-    channels.forEach((ch, index) => {
-      const div = document.createElement("div");
-      div.className = "channel";
-      div.innerHTML = `
-        <img src="${ch.logo}" alt="${ch.name}" />
-        <p>${ch.name}</p>
-      `;
+  renderChannels(channels);
+  setupSearch(channels);
 
-      div.addEventListener("click", () => {
-        playChannel(ch);
-      });
+  if (channels.length > 0) playChannel(channels[0]); // autoplay first
+}
 
-      container.appendChild(div);
+function renderChannels(channels) {
+  const grid = document.getElementById("channelGrid");
+  grid.innerHTML = "";
 
-      // Autoplay first channel
-      if (index === 0) {
-        playChannel(ch);
-      }
-    });
-  } catch (err) {
-    console.error("Error loading channels.json:", err);
-  }
+  channels.forEach(channel => {
+    const card = document.createElement("div");
+    card.className = "channel-card";
+    card.dataset.name = channel.name; // use name as identifier
+    card.innerHTML = `
+      <img src="${channel.logo}" alt="${channel.name}">
+      <span>${channel.name}</span>
+    `;
+    card.onclick = () => playChannel(channel);
+    grid.appendChild(card);
+  });
+}
+
+function setupSearch(channels) {
+  const searchBar = document.getElementById("searchBar");
+  searchBar.addEventListener("input", () => {
+    const query = searchBar.value.toLowerCase();
+    const filtered = channels.filter(c =>
+      c.name.toLowerCase().includes(query)
+    );
+    renderChannels(filtered);
+  });
 }
 
 function playChannel(channel) {
   const video = document.getElementById("videoPlayer");
-
-  if (!player) {
-    player = dashjs.MediaPlayer().create();
-    player.initialize(video, null, true);
+  if (video.player) {
+    video.player.reset();
   }
+
+  const player = dashjs.MediaPlayer().create();
+  player.initialize(video, channel.url, true);
 
   player.setProtectionData({
     "org.w3.clearkey": {
-      clearkeys: {
+      "clearkeys": {
         [channel.keyId]: channel.key
       }
     }
   });
 
-  player.attachSource(channel.url);
+  video.player = player;
 }
 
-// Run on load
-document.addEventListener("DOMContentLoaded", loadChannels);
+window.onload = loadChannels;

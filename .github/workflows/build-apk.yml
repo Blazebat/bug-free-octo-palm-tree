@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repo
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 18
 
-      # 3️⃣ Install npm dependencies (Capacitor CLI, Core, Android)
+      # 3️⃣ Install npm dependencies
       - name: Install dependencies
         run: npm install
 
@@ -33,7 +33,7 @@ jobs:
             echo "<h1>Hello SkyWatch</h1>" > www/index.html
           fi
 
-      # 5️⃣ Ensure Capacitor config exists
+      # 5️⃣ Ensure capacitor.config.json exists
       - name: Ensure capacitor.config.json
         run: |
           if [ ! -f capacitor.config.json ]; then
@@ -52,11 +52,11 @@ jobs:
             npx cap add android
           fi
 
-      # 7️⃣ Sync web assets into Android
+      # 7️⃣ Sync Capacitor
       - name: Sync Capacitor
         run: npx cap sync android
 
-      # 8️⃣ Setup Java (needed for Gradle build)
+      # 8️⃣ Setup Java
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -67,12 +67,17 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      # 🔟 Build the APK
+      # 🔟 Ensure gradlew is executable
+      - name: Make gradlew executable
+        working-directory: android
+        run: chmod +x gradlew
+
+      # 1️⃣1️⃣ Build Debug APK
       - name: Build Debug APK
         working-directory: android
         run: ./gradlew assembleDebug
 
-      # 1️⃣1️⃣ Upload APK artifact
+      # 1️⃣2️⃣ Upload APK artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:

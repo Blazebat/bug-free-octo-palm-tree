@@ -1,3 +1,0 @@
-mkdir skywatch-wrapper
-cd skywatch-wrapper
-npm init -y

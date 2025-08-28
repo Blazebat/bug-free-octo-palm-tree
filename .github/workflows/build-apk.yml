@@ -1,41 +1,59 @@
 name: Build Android APK
 
 on:
-  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      # Setup Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
 
+      # Install dependencies
       - name: Install dependencies
+        run: npm install
+
+      # Build web assets (your index.html must be in www/ or copied there before sync)
+      - name: Build web
         run: |
-          npm init -y
-          npm install @capacitor/core @capacitor/cli @capacitor/android
+          mkdir -p www
+          cp index.html www/index.html || true
 
-      - name: Init Capacitor
-        run: npx cap init "SkyWatch" "com.skywatch.app" --web-dir=empty
+      # Sync Capacitor
+      - name: Sync Capacitor
+        run: npx cap sync android
 
-      - name: Add Android platform
-        run: npx cap add android
-
-      - name: Build APK
-        run: |
-          cd android
-          ./gradlew assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      # Setup JDK for Gradle
+      - name: Setup Java
+        uses: actions/setup-java@v3
         with:
-          name: SkyWatch-debug-apk
+          distribution: temurin
+          java-version: 17
+
+      # Setup Gradle
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      # Build APK
+      - name: Build Debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      # Upload APK as artifact
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug.apk
           path: android/app/build/outputs/apk/debug/app-debug.apk

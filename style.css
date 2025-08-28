@@ -1,154 +1,92 @@
-/* Netflix-ish dark red theme - responsive */
-:root{
-  --bg:#0b0b0b;
-  --panel:#121212;
-  --muted:#8a8a8a;
-  --accent:#e50914; /* Netflix red */
-  --card:#1b1b1b;
+/* General layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #141414;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;background:var(--bg);color:#fff}
-
-.topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 18px;
-  background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  position:sticky;
-  top:0;
-  z-index:30;
-}
-
-.brand{display:flex;align-items:center;gap:12px}
-.brand-logo{height:44px;width:44px;object-fit:contain;border-radius:4px}
-.brand-title{font-weight:700;font-size:20px;letter-spacing:0.6px}
-
-.search{
-  background:#111;
-  border:1px solid rgba(255,255,255,0.04);
-  padding:8px 12px;
-  color:#fff;
-  border-radius:20px;
-  width:220px;
-  outline:none;
-}
-.search::placeholder{color:var(--muted)}
-
-main{padding:18px;max-width:1200px;margin:0 auto}
-
-/* HERO PLAYER */
-.hero{display:flex;justify-content:center;margin-bottom:20px}
-.player-wrap{
-  width:100%;
-  max-width:1100px;
-  position:relative;
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
   background: #000;
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
 
-#video{
-  width:100%;
-  height:56vw; /* 16:9-ish responsive */
-  max-height:620px;
-  background:#000;
-  display:block;
+header .logo {
+  height: 40px;
+  margin-right: 10px;
 }
 
-/* Now playing overlay */
-.now-playing{
-  position:absolute;
-  left:18px;
-  bottom:18px;
-  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
-  padding:8px 12px;
-  border-radius:6px;
-  font-weight:600;
+header h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
 }
 
-/* Player error */
-.player-error{
-  position:absolute;
-  right:18px;
-  top:18px;
-  background:rgba(230,40,40,0.95);
-  color:#fff;
-  padding:8px 12px;
-  border-radius:6px;
-  font-weight:600;
+/* Player */
+#player-container {
+  position: fixed;
+  top: 60px; /* under header */
+  width: 100%;
+  background: #000;
+  z-index: 999;
 }
 
-/* CHANNEL GRID: Netflix style rows of posters */
-.section-title{
-  margin:0 0 8px 6px;
-  font-size:18px;
-  color:#fff;
+#videoPlayer {
+  width: 100%;
+  max-height: 45vh;
+  background: #000;
 }
 
-.channel-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap:14px;
+/* Channels section */
+main {
+  margin-top: calc(60px + 45vh); /* offset for header + video */
+  padding: 20px;
 }
 
-/* Channel card */
-.card{
-  background:var(--card);
-  border-radius:8px;
-  overflow:hidden;
-  cursor:pointer;
-  transition: transform .16s ease, box-shadow .16s ease;
-  display:flex;
-  flex-direction:column;
-  align-items:stretch;
-  min-height:140px;
+main h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
-.card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+/* Channels grid - Netflix style */
+#channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
 }
 
-.card-thumb{
-  width:100%;
-  height:110px;
-  object-fit:cover;
-  background:linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.25));
-  display:block;
+.channel {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.card-body{
-  padding:8px 10px;
-  display:flex;
-  align-items:center;
-  gap:8px;
+.channel:hover {
+  transform: scale(1.05);
 }
 
-.card-logo{
-  width:36px;height:36px;border-radius:6px;object-fit:contain;background:#111;padding:4px;
+.channel img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  background: #222;
+  display: block;
 }
 
-.card-title{
-  font-size:14px;
-  font-weight:600;
-  color:#fff;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+.channel p {
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 5px 0 0;
+  color: #aaa;
 }
-
-/* Small screens adjustments */
-@media (max-width:720px){
-  .search{width:140px}
-  #video{height:56vw}
-  .card-thumb{height:96px}
-  .channel-grid{grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap:10px}
-}
-
-/* Footer */
-.footer{padding:12px;text-align:center;color:var(--muted);opacity:0.9}

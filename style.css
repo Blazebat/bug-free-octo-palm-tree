@@ -48,12 +48,16 @@ header h1 {
   background: black;
   z-index: 999;
   text-align: center;
+  padding-bottom: 8px; /* space below video for note */
 }
 
 #videoPlayer {
   width: 100%;
-  height: 360px;
+  height: auto; /* maintain aspect ratio */
+  max-height: calc(100vh - 60px - 40px - 20px); /* viewport minus header, footer, and padding */
   background: black;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Player note */
@@ -67,7 +71,7 @@ header h1 {
 
 /* Channels grid */
 main {
-  margin-top: 440px; /* leave space for header + player */
+  margin-top: calc(60px + 1px + 100%); /* leave space for header + dynamic player height */
   margin-bottom: 60px; /* leave space for footer */
   padding: 20px;
   display: grid;
@@ -112,10 +116,22 @@ footer {
   right: 0;
   height: 40px;
   background: #1e1e1e;
-  color: #bbb;
-  text-align: center;
-  line-height: 40px;
-  font-size: 14px;
   border-top: 1px solid #333;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between text and logo */
+  color: #bbb;
+  font-size: 14px;
+}
+
+.footer-content .footer-logo {
+  height: 24px; /* adjust size as needed */
+  object-fit: contain;
 }

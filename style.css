@@ -39,18 +39,23 @@ header h1 {
   outline: none;
 }
 
-/* Player */
+/* Player (initially hidden, appears after channel click) */
 .player-container {
-  margin-top: 60px; /* push below header */
+  position: fixed;
+  top: 60px; /* directly under header */
+  left: 0;
+  right: 0;
   background: black;
+  z-index: 999;
   text-align: center;
-  padding-bottom: 8px; /* space below video for note */
+  padding-bottom: 8px;
+  display: none; /* hidden until a channel is clicked */
 }
 
 #videoPlayer {
   width: 100%;
-  height: auto; /* maintain aspect ratio */
-  max-height: calc(100vh - 60px - 40px - 20px); /* viewport minus header, footer, and padding */
+  height: auto;
+  max-height: calc(100vh - 60px - 40px - 20px); /* keep space for header & footer */
   background: black;
   display: block;
   margin: 0 auto;
@@ -67,8 +72,7 @@ header h1 {
 
 /* Channels grid */
 main {
-  padding: 20px;
-  margin-bottom: 60px; /* leave space for footer */
+  padding: 80px 20px 80px; /* top: 60px header + 20px spacing, bottom: 80px for footer */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 15px;
@@ -121,12 +125,12 @@ footer {
 .footer-content {
   display: flex;
   align-items: center;
-  gap: 8px; /* space between text and logo */
+  gap: 8px;
   color: #bbb;
   font-size: 14px;
 }
 
 .footer-content .footer-logo {
-  height: 24px; /* adjust size as needed */
+  height: 24px;
   object-fit: contain;
 }

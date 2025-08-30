@@ -2,14 +2,15 @@ async function loadChannels() {
   const response = await fetch("/api/channels");
   const channels = await response.json();
 
-  // Sort alphabetically
   channels.sort((a, b) => a.name.localeCompare(b.name));
-
   renderChannels(channels);
+  setupSearch(channels);
 }
 
 function renderChannels(channels) {
-  const panel = document.getElementById("channelPanel");
+  const panel = document.getElementById("channelGrid");
+  if (!panel) return;
+
   panel.innerHTML = "";
 
   channels.forEach(channel => {
@@ -25,14 +26,23 @@ function renderChannels(channels) {
   });
 }
 
+function setupSearch(channels) {
+  const searchBar = document.getElementById("searchBar");
+  searchBar.addEventListener("input", () => {
+    const query = searchBar.value.toLowerCase();
+    const filtered = channels.filter(c =>
+      c.name.toLowerCase().includes(query)
+    );
+    renderChannels(filtered);
+  });
+}
+
 function playChannel(channel) {
   const video = document.getElementById("videoPlayer");
-  const panel = document.getElementById("channelPanel");
+  const panel = document.getElementById("channelGrid");
 
-  // Hide side panel (smooth slide)
   panel.classList.add("hidden");
 
-  // Initialize dash.js player
   if (video.player) video.player.reset();
   const player = dashjs.MediaPlayer().create();
   player.initialize(video, channel.url, true);
@@ -52,7 +62,7 @@ function playChannel(channel) {
 
 // Hamburger toggle
 document.getElementById("togglePanel").addEventListener("click", () => {
-  const panel = document.getElementById("channelPanel");
+  const panel = document.getElementById("channelGrid");
   panel.classList.toggle("hidden");
 });
 

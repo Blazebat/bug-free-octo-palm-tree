@@ -18,7 +18,7 @@ function renderChannels(channels) {
   channels.forEach(channel => {
     const card = document.createElement("div");
     card.className = "channel-card";
-    card.dataset.name = channel.name; // use name as identifier
+    card.dataset.name = channel.name;
     card.innerHTML = `
       <img src="${channel.logo}" alt="${channel.name}">
       <span>${channel.name}</span>
@@ -41,20 +41,33 @@ function setupSearch(channels) {
 
 function playChannel(channel) {
   const video = document.getElementById("videoPlayer");
+  const playerContainer = document.querySelector(".player-container");
+
+  // Show player
+  playerContainer.style.display = "block";
+
+  // Scroll to top so player is visible under header
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Reset existing player if any
   if (video.player) {
     video.player.reset();
   }
 
+  // Initialize dash.js player
   const player = dashjs.MediaPlayer().create();
   player.initialize(video, channel.url, true);
 
-  player.setProtectionData({
-    "org.w3.clearkey": {
-      "clearkeys": {
-        [channel.keyId]: channel.key
+  // Set ClearKey DRM if provided
+  if (channel.keyId && channel.key) {
+    player.setProtectionData({
+      "org.w3.clearkey": {
+        "clearkeys": {
+          [channel.keyId]: channel.key
+        }
       }
-    }
-  });
+    });
+  }
 
   video.player = player;
 }

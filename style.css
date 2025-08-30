@@ -41,12 +41,8 @@ header h1 {
 
 /* Player */
 .player-container {
-  position: fixed;
-  top: 60px; /* below header */
-  left: 0;
-  right: 0;
+  margin-top: 60px; /* push below header */
   background: black;
-  z-index: 999;
   text-align: center;
   padding-bottom: 8px; /* space below video for note */
 }
@@ -71,10 +67,8 @@ header h1 {
 
 /* Channels grid */
 main {
-  position: relative;
-  top: calc(60px + 300px); /* header + approx player height */
-  margin-bottom: 60px; /* leave space for footer */
   padding: 20px;
+  margin-bottom: 60px; /* leave space for footer */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 15px;

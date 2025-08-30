@@ -39,23 +39,23 @@ header h1 {
   outline: none;
 }
 
-/* Player (initially hidden, appears after channel click) */
+/* Player */
 .player-container {
   position: fixed;
-  top: 60px; /* directly under header */
+  top: 60px; /* under header */
   left: 0;
   right: 0;
   background: black;
   z-index: 999;
   text-align: center;
   padding-bottom: 8px;
-  display: none; /* hidden until a channel is clicked */
+  display: none; /* hidden until channel clicked */
 }
 
 #videoPlayer {
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 60px - 40px - 20px); /* keep space for header & footer */
+  max-height: calc(100vh - 60px - 40px - 20px);
   background: black;
   display: block;
   margin: 0 auto;
@@ -72,7 +72,7 @@ header h1 {
 
 /* Channels grid */
 main {
-  padding: 80px 20px 80px; /* top: 60px header + 20px spacing, bottom: 80px for footer */
+  padding: 80px 20px 80px; /* top: header + spacing, bottom: footer */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 15px;

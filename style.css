@@ -71,7 +71,8 @@ header h1 {
 
 /* Channels grid */
 main {
-  margin-top: calc(60px + 1px + 100%); /* leave space for header + dynamic player height */
+  position: relative;
+  top: calc(60px + 300px); /* header + approx player height */
   margin-bottom: 60px; /* leave space for footer */
   padding: 20px;
   display: grid;

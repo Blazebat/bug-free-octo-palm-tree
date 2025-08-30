@@ -8,23 +8,23 @@
   <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <img src="/logo.png" alt="Skywatch Logo" class="logo">
-    <h1>Skywatch</h1>
-    <input type="text" id="searchBar" placeholder="Search channels...">
-  </header>
+  <!-- Left side panel for channels -->
+  <div id="channelGrid"></div>
 
-  <!-- Fixed Player -->
-  <div class="player-container">
+  <!-- Video player area -->
+  <div class="player-container" id="playerArea">
+    <header>
+      <button id="togglePanel">☰</button>
+      <img src="/logo.png" alt="Skywatch Logo" class="logo">
+      <h1>Skywatch</h1>
+      <input type="text" id="searchBar" placeholder="Search channels...">
+    </header>
+
     <video id="videoPlayer" controls autoplay></video>
     <p class="player-note">
-      If the video doesn't play immediately, please wait a few seconds for the channel to load or refresh your browser and try again.
+      If the video doesn't play immediately, please wait a few seconds for the channel to load or refresh your browser.
     </p>
   </div>
-
-  <!-- Channels -->
-  <main id="channelGrid"></main>
 
   <!-- Footer -->
   <footer>

@@ -6,14 +6,11 @@ async function loadChannels() {
   channels.sort((a, b) => a.name.localeCompare(b.name));
 
   renderChannels(channels);
-  setupSearch(channels);
-
-  if (channels.length > 0) playChannel(channels[0]); // autoplay first
 }
 
 function renderChannels(channels) {
-  const grid = document.getElementById("channelGrid");
-  grid.innerHTML = "";
+  const panel = document.getElementById("channelPanel");
+  panel.innerHTML = "";
 
   channels.forEach(channel => {
     const card = document.createElement("div");
@@ -24,41 +21,22 @@ function renderChannels(channels) {
       <span>${channel.name}</span>
     `;
     card.onclick = () => playChannel(channel);
-    grid.appendChild(card);
-  });
-}
-
-function setupSearch(channels) {
-  const searchBar = document.getElementById("searchBar");
-  searchBar.addEventListener("input", () => {
-    const query = searchBar.value.toLowerCase();
-    const filtered = channels.filter(c =>
-      c.name.toLowerCase().includes(query)
-    );
-    renderChannels(filtered);
+    panel.appendChild(card);
   });
 }
 
 function playChannel(channel) {
   const video = document.getElementById("videoPlayer");
-  const playerContainer = document.querySelector(".player-container");
+  const panel = document.getElementById("channelPanel");
 
-  // Show player
-  playerContainer.style.display = "block";
-
-  // Scroll to top so player is visible under header
-  window.scrollTo({ top: 0, behavior: "smooth" });
-
-  // Reset existing player if any
-  if (video.player) {
-    video.player.reset();
-  }
+  // Hide side panel (smooth slide)
+  panel.classList.add("hidden");
 
   // Initialize dash.js player
+  if (video.player) video.player.reset();
   const player = dashjs.MediaPlayer().create();
   player.initialize(video, channel.url, true);
 
-  // Set ClearKey DRM if provided
   if (channel.keyId && channel.key) {
     player.setProtectionData({
       "org.w3.clearkey": {
@@ -71,5 +49,11 @@ function playChannel(channel) {
 
   video.player = player;
 }
+
+// Hamburger toggle
+document.getElementById("togglePanel").addEventListener("click", () => {
+  const panel = document.getElementById("channelPanel");
+  panel.classList.toggle("hidden");
+});
 
 window.onload = loadChannels;

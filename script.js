@@ -41,6 +41,7 @@ function playChannel(channel) {
   const video = document.getElementById("videoPlayer");
   const panel = document.getElementById("channelGrid");
 
+  // Hide panel (slide over)
   panel.classList.add("hidden");
 
   if (video.player) video.player.reset();

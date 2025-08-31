@@ -131,7 +131,7 @@ footer {
   word-break: break-word;
 }
 
-/* Player container */
+/* Player container area */
 #playerArea {
   margin-top: 60px;   /* below header */
   margin-bottom: 40px; /* above footer */
@@ -142,22 +142,22 @@ footer {
   position: relative;
 }
 
-/* Video wrapper */
-#videoWrapper {
-  flex: 1;
+/* --- Player styles inserted --- */
+.player-container {
+  width: 100%;
+  background: black;
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex: 1;
 }
 
-/* Auto-height video player */
-#videoPlayer {
+.player-container video {
   width: 100%;
-  flex: 1;  
-  max-height: calc(100vh - 60px - 40px - 30px); /* header + footer + note space */
+  max-width: 960px;
+  height: auto;
   background: black;
-  display: block;
 }
+/* --- End inserted --- */
 
 /* Player note */
 .player-note {

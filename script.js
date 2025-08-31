@@ -885,7 +885,14 @@ const video = document.getElementById("videoPlayer");
 const player = dashjs.MediaPlayer().create();
 player.initialize(video, null, true);
 
-// Play channel
+// Play channel function
 function playChannel(url) {
   player.attachSource(url);
 }
+
+// ✅ Auto-play default channel (first in list)
+window.addEventListener("load", () => {
+  if (channels.length > 0) {
+    playChannel(channels[0].url);
+  }
+});

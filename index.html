@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skywatch</title>
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 <body>
-  <!-- Left side panel for channels -->
-  <div id="channelGrid"></div>
+  <!-- Channel Side Panel -->
+  <div id="channelGrid" class="hidden"></div>
 
-  <!-- Video player area -->
+  <!-- Main Player Area -->
   <div class="player-container" id="playerArea">
     <header>
       <button id="togglePanel">☰</button>
-      <img src="/logo.png" alt="Skywatch Logo" class="logo">
+      <img src="logo.png" alt="Skywatch Logo" class="logo">
       <h1>Skywatch</h1>
       <input type="text" id="searchBar" placeholder="Search channels...">
     </header>
@@ -29,11 +29,11 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <span>Skywatch Powered by RageTV Plus</span>
-      <img src="/ragetv.png" alt="RageTV Logo" class="footer-logo">
+      <span>Powered by RageTV Plus</span>
+      <img src="ragetv.png" alt="RageTV Logo" class="footer-logo">
     </div>
   </footer>
 
-  <script src="/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

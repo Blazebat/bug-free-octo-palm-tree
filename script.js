@@ -1,6 +1,5 @@
-async function loadChannels() {
-  // Directly embed channels here instead of fetching
-  const channels = [
+// Example channel list (you can expand)
+const channels = [
     {
         "name": "ALLTV2",
         "url": "https://ragetb.onrender.com/001/2/ch00000090990000001179/manifest.mpd?AuthInfo=d85e93&JITPDRMType=Widevine&virtualDomain=001.live_hls.zte.com",
@@ -848,13 +847,17 @@ async function loadChannels() {
         "keyId": "f066477aecb2466a959f0f9383ae3f81",
         "key": "430a887a12fac79ef448f447cae868dc"
     }
-  ];
 
+];
+
+// Load channels into grid
+function loadChannels() {
   channels.sort((a, b) => a.name.localeCompare(b.name));
   renderChannels(channels);
   setupSearch(channels);
 }
 
+// Render channel cards
 function renderChannels(channels) {
   const panel = document.getElementById("channelGrid");
   if (!panel) return;
@@ -874,6 +877,7 @@ function renderChannels(channels) {
   });
 }
 
+// Real-time search
 function setupSearch(channels) {
   const searchBar = document.getElementById("searchBar");
   searchBar.addEventListener("input", () => {
@@ -885,12 +889,9 @@ function setupSearch(channels) {
   });
 }
 
+// Play selected channel
 function playChannel(channel) {
   const video = document.getElementById("videoPlayer");
-  const panel = document.getElementById("channelGrid");
-
-  // Hide panel (slide over)
-  panel.classList.add("hidden");
 
   if (video.player) video.player.reset();
   const player = dashjs.MediaPlayer().create();

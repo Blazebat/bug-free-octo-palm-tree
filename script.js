@@ -1,4 +1,4 @@
-// Example channels (replace with your real list)
+// Example channel list
 const channels = [
     {
         "name": "ALLTV2",
@@ -849,73 +849,43 @@ const channels = [
     }
 ];
 
-function renderChannels(channels) {
-  const panel = document.getElementById("channelGrid");
-  panel.innerHTML = "";
-
-  channels.forEach(channel => {
-    const card = document.createElement("div");
-    card.className = "channel-card";
-    card.innerHTML = `
-      <img src="${channel.logo}" alt="${channel.name}">
-      <span>${channel.name}</span>
-    `;
-    card.onclick = () => {
-      playChannel(channel);
-      hidePanel(); // hide sidebar when selecting a channel
-    };
-    panel.appendChild(card);
+// Render channel list
+const channelGrid = document.getElementById("channelGrid");
+channels.forEach(ch => {
+  const card = document.createElement("div");
+  card.className = "channel-card";
+  card.innerHTML = `
+    <img src="${ch.logo}" alt="${ch.name}">
+    <span>${ch.name}</span>
+  `;
+  card.addEventListener("click", () => {
+    playChannel(ch.url);
+    channelGrid.classList.add("hidden"); // hide after click
   });
-}
-
-function playChannel(channel) {
-  const video = document.getElementById("videoPlayer");
-
-  if (video.player) {
-    video.player.reset();
-  }
-
-  const player = dashjs.MediaPlayer().create();
-  player.initialize(video, channel.url, true);
-
-  if (channel.keyId && channel.key) {
-    player.setProtectionData({
-      "org.w3.clearkey": {
-        "clearkeys": {
-          [channel.keyId]: channel.key
-        }
-      }
-    });
-  }
-
-  video.player = player;
-}
-
-// Sidebar controls
-function hidePanel() {
-  document.getElementById("channelGrid").classList.add("hidden");
-}
-document.getElementById("togglePanel").addEventListener("click", () => {
-  document.getElementById("channelGrid").classList.toggle("hidden");
+  channelGrid.appendChild(card);
 });
 
-// Search
-function setupSearch(channels) {
-  const searchBar = document.getElementById("searchBar");
-  searchBar.addEventListener("input", () => {
-    const query = searchBar.value.toLowerCase();
-    const filtered = channels.filter(c =>
-      c.name.toLowerCase().includes(query)
-    );
-    renderChannels(filtered);
-  });
-}
+// Toggle channel panel
+document.getElementById("togglePanel").addEventListener("click", () => {
+  channelGrid.classList.toggle("hidden");
+});
 
-// Init
-window.onload = () => {
-  renderChannels(channels);
-  setupSearch(channels);
-  if (channels.length > 0) {
-    playChannel(channels[0]);
-  }
-};
+// Search filter
+document.getElementById("searchBar").addEventListener("input", (e) => {
+  const term = e.target.value.toLowerCase();
+  const cards = channelGrid.getElementsByClassName("channel-card");
+  Array.from(cards).forEach(card => {
+    const name = card.innerText.toLowerCase();
+    card.style.display = name.includes(term) ? "flex" : "none";
+  });
+});
+
+// DASH.js setup
+const video = document.getElementById("videoPlayer");
+const player = dashjs.MediaPlayer().create();
+player.initialize(video, null, true);
+
+// Play channel
+function playChannel(url) {
+  player.attachSource(url);
+}

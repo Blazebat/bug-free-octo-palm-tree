@@ -1,4 +1,4 @@
-// Example channel list (you can expand)
+// Example channels (put your real URLs & keys here)
 const channels = [
     {
         "name": "ALLTV2",
@@ -847,27 +847,15 @@ const channels = [
         "keyId": "f066477aecb2466a959f0f9383ae3f81",
         "key": "430a887a12fac79ef448f447cae868dc"
     }
-
 ];
 
-// Load channels into grid
-function loadChannels() {
-  channels.sort((a, b) => a.name.localeCompare(b.name));
-  renderChannels(channels);
-  setupSearch(channels);
-}
-
-// Render channel cards
 function renderChannels(channels) {
   const panel = document.getElementById("channelGrid");
-  if (!panel) return;
-
   panel.innerHTML = "";
 
   channels.forEach(channel => {
     const card = document.createElement("div");
     card.className = "channel-card";
-    card.dataset.name = channel.name;
     card.innerHTML = `
       <img src="${channel.logo}" alt="${channel.name}">
       <span>${channel.name}</span>
@@ -877,23 +865,13 @@ function renderChannels(channels) {
   });
 }
 
-// Real-time search
-function setupSearch(channels) {
-  const searchBar = document.getElementById("searchBar");
-  searchBar.addEventListener("input", () => {
-    const query = searchBar.value.toLowerCase();
-    const filtered = channels.filter(c =>
-      c.name.toLowerCase().includes(query)
-    );
-    renderChannels(filtered);
-  });
-}
-
-// Play selected channel
 function playChannel(channel) {
   const video = document.getElementById("videoPlayer");
 
-  if (video.player) video.player.reset();
+  if (video.player) {
+    video.player.reset();
+  }
+
   const player = dashjs.MediaPlayer().create();
   player.initialize(video, channel.url, true);
 
@@ -910,10 +888,28 @@ function playChannel(channel) {
   video.player = player;
 }
 
-// Hamburger toggle
+// Search functionality
+function setupSearch(channels) {
+  const searchBar = document.getElementById("searchBar");
+  searchBar.addEventListener("input", () => {
+    const query = searchBar.value.toLowerCase();
+    const filtered = channels.filter(c =>
+      c.name.toLowerCase().includes(query)
+    );
+    renderChannels(filtered);
+  });
+}
+
+// Toggle channel panel
 document.getElementById("togglePanel").addEventListener("click", () => {
-  const panel = document.getElementById("channelGrid");
-  panel.classList.toggle("hidden");
+  document.getElementById("channelGrid").classList.toggle("hidden");
 });
 
-window.onload = loadChannels;
+// Initialize
+window.onload = () => {
+  renderChannels(channels);
+  setupSearch(channels);
+  if (channels.length > 0) {
+    playChannel(channels[0]); // autoplay first channel
+  }
+};

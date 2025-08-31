@@ -8,10 +8,10 @@
   <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 <body>
-  <!-- Left side panel for channels -->
+  <!-- Left side panel -->
   <div id="channelGrid"></div>
 
-  <!-- Video player area -->
+  <!-- Main area -->
   <div class="player-container" id="playerArea">
     <header>
       <button id="togglePanel">☰</button>
@@ -20,19 +20,20 @@
       <input type="text" id="searchBar" placeholder="Search channels...">
     </header>
 
-    <video id="videoPlayer" controls autoplay></video>
-    <p class="player-note">
-      If the video doesn't play immediately, please wait a few seconds for the channel to load or refresh your browser.
-    </p>
-  </div>
+    <main>
+      <video id="videoPlayer" controls autoplay></video>
+      <p class="player-note">
+        If the video doesn't play immediately, please wait a few seconds for the channel to load or refresh your browser.
+      </p>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <span>Powered by RageTV Plus</span>
-      <img src="ragetv.png" alt="RageTV Logo" class="footer-logo">
-    </div>
-  </footer>
+    <footer>
+      <div class="footer-content">
+        <span>Powered by RageTV Plus</span>
+        <img src="ragetv.png" alt="RageTV Logo" class="footer-logo">
+      </div>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>

@@ -8,32 +8,36 @@
   <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 <body>
-  <!-- Left side panel -->
-  <div id="channelGrid"></div>
+  <!-- Channel side panel -->
+  <div id="channelGrid" class="hidden"></div>
 
-  <!-- Main area -->
+  <!-- Main player area -->
   <div class="player-container" id="playerArea">
     <header>
       <button id="togglePanel">☰</button>
-      <img src="logo.png" alt="Skywatch Logo" class="logo">
+      <img src="logo.png" alt="Skywatch Logo" class="logo" />
       <h1>Skywatch</h1>
-      <input type="text" id="searchBar" placeholder="Search channels...">
+      <input type="text" id="searchBar" placeholder="Search channels..." />
     </header>
 
-    <main>
+    <!-- Video -->
+    <div id="videoWrapper">
       <video id="videoPlayer" controls autoplay></video>
-      <p class="player-note">
-        Please wait a few seconds for the channel to load or refresh your browser.
-      </p>
-    </main>
+    </div>
 
-    <footer>
-      <div class="footer-content">
-        <span>Powered by RageTV Plus</span>
-        <img src="ragetv.png" alt="RageTV Logo" class="footer-logo">
-      </div>
-    </footer>
+    <!-- Player note -->
+    <p class="player-note">
+      Wait a few seconds for the channel to load.
+    </p>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <span>Powered by RageTV Plus</span>
+      <img src="ragetv.png" alt="RageTV Logo" class="footer-logo" />
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

@@ -1,4 +1,4 @@
-// Example channels (put your real URLs & keys here)
+// Example channels (replace with your real list)
 const channels = [
     {
         "name": "ALLTV2",
@@ -860,7 +860,10 @@ function renderChannels(channels) {
       <img src="${channel.logo}" alt="${channel.name}">
       <span>${channel.name}</span>
     `;
-    card.onclick = () => playChannel(channel);
+    card.onclick = () => {
+      playChannel(channel);
+      hidePanel(); // hide sidebar when selecting a channel
+    };
     panel.appendChild(card);
   });
 }
@@ -888,7 +891,15 @@ function playChannel(channel) {
   video.player = player;
 }
 
-// Search functionality
+// Sidebar controls
+function hidePanel() {
+  document.getElementById("channelGrid").classList.add("hidden");
+}
+document.getElementById("togglePanel").addEventListener("click", () => {
+  document.getElementById("channelGrid").classList.toggle("hidden");
+});
+
+// Search
 function setupSearch(channels) {
   const searchBar = document.getElementById("searchBar");
   searchBar.addEventListener("input", () => {
@@ -900,16 +911,11 @@ function setupSearch(channels) {
   });
 }
 
-// Toggle channel panel
-document.getElementById("togglePanel").addEventListener("click", () => {
-  document.getElementById("channelGrid").classList.toggle("hidden");
-});
-
-// Initialize
+// Init
 window.onload = () => {
   renderChannels(channels);
   setupSearch(channels);
   if (channels.length > 0) {
-    playChannel(channels[0]); // autoplay first channel
+    playChannel(channels[0]);
   }
 };

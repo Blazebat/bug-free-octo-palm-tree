@@ -87,12 +87,12 @@
 
     .channel-info strong {
       font-size: 16px;
-      color: #1db954; /* highlight Skywatch green */
+      color: #1db954;
     }
 
     .show-title {
       font-size: 14px;
-      color: #f1c40f; /* yellow highlight for current show */
+      color: #f1c40f;
     }
   </style>
 </head>
@@ -103,7 +103,7 @@
       <h1>Skywatch</h1>
     </div>
     <!-- Back button -->
-    <button class="back-btn" onclick="history.back()">⬅ Back</button>
+    <button class="back-btn" onclick="goBack()">⬅ Back</button>
   </header>
 
   <div id="epg">Loading...</div>
@@ -113,6 +113,14 @@
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH1.xml.gz",
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH2.xml.gz"
     ];
+
+    function goBack() {
+      if (document.referrer) {
+        history.back();
+      } else {
+        window.location.href = "/"; // fallback to homepage
+      }
+    }
 
     async function fetchEPGs() {
       const results = await Promise.all(
@@ -164,8 +172,7 @@
         channels.forEach((ch) => {
           const show = getCurrentShow(ch["channel-id"], epgDocs);
 
-          // Only display if there’s a current show
-          if (show) {
+          if (show) { // only show channels with a current programme
             const div = document.createElement("div");
             div.className = "channel";
             div.innerHTML = `
@@ -179,7 +186,6 @@
           }
         });
 
-        // If no channels are showing
         if (!epgContainer.innerHTML) {
           epgContainer.innerHTML = "No channels currently airing shows.";
         }

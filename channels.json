@@ -1,0 +1,607 @@
+[
+  {
+    "name": "ALLTV2",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/35%20AllTV%20(1).JPG",
+    "channel-id": "Alltv.ph"
+  },
+  {
+    "name": "One PH",
+    "logo": "https://cms.cignal.tv/Upload/Images/One-PH.jpg",
+    "channel-id": "Oneph.ph"
+  },
+  {
+    "name": "PTV",
+    "logo": "https://cms.cignal.tv/Upload/Images/ptv-4.png",
+    "channel-id": "PTV.ph"
+  },
+  {
+    "name": "TV5 Philippines",
+    "logo": "https://cms.cignal.tv/Upload/Images/5.png",
+    "channel-id": "TV5.ph"
+  },
+  {
+    "name": "One News",
+    "logo": "https://cms.cignal.tv/Upload/Images/One-News.jpg",
+    "channel-id": "Onenews.Hd.ph"
+  },
+  {
+    "name": "GMA",
+    "logo": "https://cms.cignal.tv/Upload/Images/GMA7.png",
+    "channel-id": "GMA.ph"
+  },
+  {
+    "name": "Kapamilya Channel",
+    "logo": "https://cms.cignal.tv/Upload/Images/Kapamilya-Channel-HD.jpg",
+    "channel-id": "Kapamilya.Channel.ph"
+  },
+  {
+    "name": "RPTV",
+    "logo": "https://cms.cignal.tv/Upload/Images/rptv%20logo%20final-02.png",
+    "channel-id": "Rptv.ph"
+  },
+  {
+    "name": "Bilyonaryo News Channel",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/c/ce/BilyonaryoNewsChannel_Logo_-_Black_%282024%29.png",
+    "channel-id": "Bilyonaryoch.ph"
+  },
+  {
+    "name": "UNTV",
+    "logo": "https://cms.cignal.tv/Upload/Images/UNTV-2017.png",
+    "channel-id": "Untv.ph"
+  },
+  {
+    "name": "GTV",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/GTV-2022.jpg",
+    "channel-id": "GTV.ph"
+  },
+  {
+    "name": "IBC 13",
+    "logo": "https://cms.cignal.tv/Upload/Images/IBC.png",
+    "channel-id": "Ibc13.ph"
+  },
+  {
+    "name": "SMNI",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/Sonshine.png",
+    "channel-id": "SMNI.ph"
+  },
+  {
+    "name": "Jeepney TV",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/Jeepney-TV-March-2022-Highlight-Video-Thumbnail.jpg",
+    "channel-id": "Jeepney.TV.ph"
+  },
+  {
+    "name": "DZMM Teleradyo",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/DZMM_TeleRadyo.svg/1024px-DZMM_TeleRadyo.svg.png",
+    "channel-id": "DZMM.TELERADYO.ph"
+  },
+  {
+    "name": "Abante Radyo",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/52/AbanteRadyoDWAR_Logo.jpg/330px-AbanteRadyoDWAR_Logo.jpg",
+    "channel-id": ""
+  },
+  {
+    "name": "DZRH News Television",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/DZRH.png",
+    "channel-id": ""
+  },
+  {
+    "name": "ANC SD",
+    "logo": "https://i.imgur.com/XzVYXaV.png",
+    "channel-id": "ANC.ph"
+  },
+  {
+    "name": "INCTV",
+    "logo": "https://cms.cignal.tv/Upload/Images/INCTV.png",
+    "channel-id": ""
+  },
+  {
+    "name": "NET 25",
+    "logo": "https://cms.cignal.tv/Upload/Images/Net-25%20Logo%20-2022.jpg",
+    "channel-id": "Net.25.ph"
+  },
+  {
+    "name": "Solar Flix",
+    "logo": "https://cms.cignal.tv/Upload/Images/Solar%20Logo%20png.png",
+    "channel-id": "Solar.Flix.ph"
+  },
+  {
+    "name": "Congress TV",
+    "logo": "https://ptvnews.ph/wp-content/uploads/2024/01/Screenshot-2024-01-22-090639-1536x864.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Golden Nation Network",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/27/GNN_Logo_2025.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Pinoy Xtreme",
+    "logo": "https://cms.cignal.tv/Upload/Images/Oiniy-Extreme.png",
+    "channel-id": ""
+  },
+  {
+    "name": "CLTV",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/b/ba/CLTV-36_Logo.jpeg",
+    "channel-id": ""
+  },
+  {
+    "name": "PBO",
+    "logo": "https://cms.cignal.tv/Upload/Images/Pinoy-Box-Office.jpg",
+    "channel-id": "PBO.ph"
+  },
+  {
+    "name": "Cinemax",
+    "logo": "https://cms.cignal.tv/Upload/Images/Cinemax.jpg",
+    "channel-id": "Cinemax.ph"
+  },
+  {
+    "name": "Cinema One",
+    "logo": "https://cms.cignal.tv/Upload/Images/Cinema-One.jpg",
+    "channel-id": "Cinema.One.ph"
+  },
+  {
+    "name": "Celestial Movies Pinoy",
+    "logo": "https://cms.cignal.tv/Upload/Images/Celestial-Logo-2022.jpg",
+    "channel-id": "Celestial.Movies.Pinoy.ph"
+  },
+  {
+    "name": "HBO",
+    "logo": "https://cms.cignal.tv/Upload/Images/HBO.jpg",
+    "channel-id": "HBO.ph"
+  },
+  {
+    "name": "HBO Family",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/HBO-Family.jpg",
+    "channel-id": "HBO.FAMILY.ph"
+  },
+  {
+    "name": "HBO Hits",
+    "logo": "https://cms.cignal.tv/Upload/Images/HBO%20Hits-1.jpg",
+    "channel-id": "HBO.HITS.ph"
+  },
+  {
+    "name": "HBO Signature",
+    "logo": "https://cms.cignal.tv/Upload/Images/HB-O-SIG1.png",
+    "channel-id": "HBO.SIGNATURE.ph"
+  },
+  {
+    "name": "VIVA Cinema",
+    "logo": "https://cms.cignal.tv/Upload/Images/Viva-Cinema.jpg",
+    "channel-id": "VIVA.Cinema.ph"
+  },
+  {
+    "name": "Celestial Classic Movies",
+    "logo": "https://i.imgur.com/gWKc50d.png",
+    "channel-id": "CELESTIAL.CLASSIC.MOVIES.ph"
+  },
+  {
+    "name": "CinemaWorld",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/CinemaWorld-Jan-22-Highlights.jpg",
+    "channel-id": ""
+  },
+  {
+    "name": "Thrill",
+    "logo": "https://cms.cignal.tv/Upload/Images/THRILL%20copy.png",
+    "channel-id": "Thrill.ph"
+  },
+  {
+    "name": "Cinemo",
+    "logo": "https://cms.cignal.tv/Upload/Images/Cinemo.jpg",
+    "channel-id": "CINEMO!.ph"
+  },
+  {
+    "name": "TMC",
+    "logo": "https://cms.cignal.tv/Upload/Images/TMC-Nov-2021-Logo-Updated.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Tap Movies",
+    "logo": "https://cms.cignal.tv/Upload/Images/Tap-movies.jpg",
+    "channel-id": "TAPMOVIES.ph"
+  },
+  {
+    "name": "Tap Actionflix",
+    "logo": "https://cms.cignal.tv/Upload/Images/Tap-Action-Flix.jpg",
+    "channel-id": "TAPACTIONFLIX.ph"
+  },
+  {
+    "name": "NBA TV Philippines",
+    "logo": "https://cms.cignal.tv/Upload/Images/NBA-TV-Philippines.jpg",
+    "channel-id": "Cgnl.Nba.ph"
+  },
+  {
+    "name": "Solar Sports",
+    "logo": "https://static.wikia.nocookie.net/russel/images/2/2b/Solar_Sports_Logo_2024.png",
+    "channel-id": "SOLAR.SPORTS.ph"
+  },
+  {
+    "name": "One Sports",
+    "logo": "https://cms.cignal.tv/Upload/Images/OneSPORTS_LOGO-FA-01.png",
+    "channel-id": "Onesports.ph"
+  },
+  {
+    "name": "Premier Football",
+    "logo": "https://cms.cignal.tv/Upload/Images//Premier%20Football%20HD.png",
+    "channel-id": "PREMIERFOOTBALL.ph"
+  },
+  {
+    "name": "Premier Sports",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/Premier-Sports.jpg",
+    "channel-id": "PREMIER.SPORTS.ph"
+  },
+  {
+    "name": "Premier Sports 2",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/Premier-Sports-2.png",
+    "channel-id": "PREMIERSPORTS2.ph"
+  },
+  {
+    "name": "SPOTV",
+    "logo": "https://cms.cignal.tv/Upload/Images//spotv_cs6-ai.png",
+    "channel-id": "SPOTV.ph"
+  },
+  {
+    "name": "SPOTV2",
+    "logo": "https://cms.cignal.tv/Upload/Images/SpoTV-2.jpg",
+    "channel-id": "SPOTV..2.ph"
+  },
+  {
+    "name": "Tap Sports",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/Tap-Sports.jpg",
+    "channel-id": "TAPSPORTS.ph"
+  },
+  {
+    "name": "Edge Sports",
+    "logo": "https://static.wikia.nocookie.net/tvfanon6528/images/5/5a/Edge_Sport_%282020-.n.v.%29.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Motorvision",
+    "logo": "https://motorvision.tv/wp-content/uploads/2023/09/MV_Logo_positive_light_background-2.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Cartoonito",
+    "logo": "https://cms.cignal.tv/Upload/Images/CARTOONITO_BT_LOGO_RGB.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Cartoon Network",
+    "logo": "https://cms.cignal.tv/Upload/Images/Cartoon-Network-2022-Logo.jpg",
+    "channel-id": "CARTOON.NETWORK.ph"
+  },
+  {
+    "name": "Nick Jr",
+    "logo": "https://cms.cignal.tv/Upload/Images/Nick-Jr.jpg",
+    "channel-id": "NICKJR.ph"
+  },
+  {
+    "name": "Nickelodeon",
+    "logo": "https://cms.cignal.tv/Upload/Images/NickLogo_Orange_Outline.png",
+    "channel-id": "NICKELODEON.ph"
+  },
+  {
+    "name": "Animax",
+    "logo": "https://cms.cignal.tv/Upload/Images/Animax.jpg",
+    "channel-id": "Animax.ph"
+  },
+  {
+    "name": "TapTV",
+    "logo": "https://cms.cignal.tv/Upload/Images/Tap-TV.jpg",
+    "channel-id": "TAPTV.ph"
+  },
+  {
+    "name": "Tap Edge",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/4/46/TapEdge-ph.png",
+    "channel-id": "TAPEDGE.ph"
+  },
+  {
+    "name": "Lifetime",
+    "logo": "https://cms.cignal.tv/Upload/Images/Lifetime-Logo.jpg",
+    "channel-id": "Lifetime.ph"
+  },
+  {
+    "name": "AXN",
+    "logo": "https://cms.cignal.tv/Upload/Images/AXN-New-Logo-(Black).jpg",
+    "channel-id": "AXN.ph"
+  },
+  {
+    "name": "Warner TV",
+    "logo": "https://cms.cignal.tv/Upload/Images/Warner-TV.jpg",
+    "channel-id": "WARNER.TV.ph"
+  },
+  {
+    "name": "Rock Action",
+    "logo": "https://cms.cignal.tv/Upload/Images/ROCK%20ACTION_3D_HIGH%20RES_BLACK_Print.png",
+    "channel-id": "Rock.Extreme.ph"
+  },
+  {
+    "name": "Rock Entertainment",
+    "logo": "https://cms.cignal.tv/Upload/Images/Rock-Entertainment.jpg",
+    "channel-id": "Rock.Entertainment.ph"
+  },
+  {
+    "name": "KIX HD",
+    "logo": "https://cms.cignal.tv/Upload/Images/Kix%20Logo%20-2022.jpg",
+    "channel-id": "Kix.Hd.ph"
+  },
+  {
+    "name": "KBS World",
+    "logo": "https://cms.cignal.tv/Upload/Images/KBS.png",
+    "channel-id": "Kbs.World.ph"
+  },
+  {
+    "name": "CNN International",
+    "logo": "https://cms.cignal.tv/Upload/Images/CNN-Feb-2022.jpg",
+    "channel-id": "Cnn.Hd.ph"
+  },
+  {
+    "name": "CNBC",
+    "logo": "https://cms.cignal.tv/Upload/Images/CNBC_LOGO_PRIMARY_FC.png",
+    "channel-id": "CNBC.ph"
+  },
+  {
+    "name": "BBC World News",
+    "logo": "https://cms.cignal.tv/Upload/Images/BBC%20News.png",
+    "channel-id": "Bbcworld.News.ph"
+  },
+  {
+    "name": "Channel News Asia",
+    "logo": "https://cms.cignal.tv/Upload/Images/CNA%20LOGO%20-horizontal%20-%20on%20light%20background.png",
+    "channel-id": "Channelnews.Asia.ph"
+  },
+  {
+    "name": "FOX News Channel",
+    "logo": "https://cms.cignal.tv/Upload/Images/Fox-News-Channel.jpg",
+    "channel-id": ""
+  },
+  {
+    "name": "USA Today",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/USA_Today_%282020-01-29%29.svg/1024px-USA_Today_%282020-01-29%29.svg.png",
+    "channel-id": ""
+  },
+  {
+    "name": "DW",
+    "logo": "https://cms.cignal.tv/Upload/Images//DW.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Euronews",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Euronews._2016_alternative_logo.png/250px-Euronews._2016_alternative_logo.png",
+    "channel-id": "EURONEWS.ph"
+  },
+  {
+    "name": "Al Jazeera",
+    "logo": "https://cms.cignal.tv/Upload/Images/AL-JAZEERA.png",
+    "channel-id": "Aljazeera.ph"
+  },
+  {
+    "name": "NHK World japan",
+    "logo": "https://cms.cignal.tv/Upload/Images/NHK-World-Japan.png",
+    "channel-id": "NHK.WORLD.JAPAN.ph"
+  },
+  {
+    "name": "CGTN Documentary",
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/24/CGTN_Documentary.svg/2560px-CGTN_Documentary.svg.png",
+    "channel-id": ""
+  },
+  {
+    "name": "CGTN",
+    "logo": "https://cms.cignal.tv/Upload/Images/CGTN%20new%20channel%20logo.png",
+    "channel-id": "Cgtn.ph"
+  },
+  {
+    "name": "Bloomberg",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/Bloomberg-2022.jpg",
+    "channel-id": "Bloomberg.ph"
+  },
+  {
+    "name": "France24",
+    "logo": "https://cms.cignal.tv/Upload/Images/France-24.png",
+    "channel-id": "France24.ph"
+  },
+  {
+    "name": "Rai Italia",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rai_Italia_-_Logo_2017.svg/500px-Rai_Italia_-_Logo_2017.svg.png",
+    "channel-id": ""
+  },
+  {
+    "name": "ABC Australia",
+    "logo": "https://cms.cignal.tv/Upload/Images/ABC-Australia.jpg",
+    "channel-id": "Abc.Australia.ph"
+  },
+  {
+    "name": "TVE Internacional",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Logo_TVE-Internacional.svg/2084px-Logo_TVE-Internacional.svg.png",
+    "channel-id": ""
+  },
+  {
+    "name": "CCTV4",
+    "logo": "https://cms.cignal.tv/Upload/Images/CCTV-4.png",
+    "channel-id": "Cctv4.ph"
+  },
+  {
+    "name": "MYX",
+    "logo": "https://cms.cignal.tv/Upload/Images/Myx.jpg",
+    "channel-id": "MYX.ph"
+  },
+  {
+    "name": "MTV 90s",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/MTV_90s_2022.svg/1816px-MTV_90s_2022.svg.png",
+    "channel-id": "MTV90S.ph"
+  },
+  {
+    "name": "MEZZO Live",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Logo_Mezzo_Live_%282023%29.svg/1024px-Logo_Mezzo_Live_%282023%29.svg.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Hallypop",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fb/GMA_Hallypop_logo.png",
+    "channel-id": ""
+  },
+  {
+    "name": "RJ DigiTV",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/RJ-Tv.jpg",
+    "channel-id": ""
+  },
+  {
+    "name": "RJTV",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/4/46/DZRJ-DTV_graphic.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Rock TV of Manila",
+    "logo": "https://i.imgur.com/YMnMilx.png",
+    "channel-id": ""
+  },
+  {
+    "name": "The Aquarium Channel",
+    "logo": "https://ownassetsmysky.blob.core.windows.net/assetsmysky/production/1428715906_AQUARIUM_LPARTCARD.jpg",
+    "channel-id": ""
+  },
+  {
+    "name": "Metro Channel",
+    "logo": "https://cms.cignal.tv/Upload/Images/Metro-Channel.jpg",
+    "channel-id": "Metro.Channel.ph"
+  },
+  {
+    "name": "Filam TV HD",
+    "logo": "https://ml02dtnc01wc.i.optimole.com/w:247/h:57/q:mauto/ig:avif/https://filamtv.us/wp-content/uploads/2021/10/logo.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Living Asia HD",
+    "logo": "https://i.imgur.com/fiLjSvq.jpeg",
+    "channel-id": ""
+  },
+  {
+    "name": "Vegas Life",
+    "logo": "https://www.vegaslifetv.us/assets/images/vltv-wm-white-logo-131x131.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Mindanow Network",
+    "logo": "https://ml02dtnc01wc.i.optimole.com/w:945/h:945/q:mauto/ig:avif/https://mindanownetwork.com/wp-content/uploads/2024/11/Mindanow-Network-Logo-Vertical.png",
+    "channel-id": ""
+  },
+  {
+    "name": "TLC",
+    "logo": "https://cms.cignal.tv/Upload/Images/TLC-(1).png",
+    "channel-id": "TLC.ph"
+  },
+  {
+    "name": "HGTV",
+    "logo": "https://cms.cignal.tv/Upload/Images/HGTV.png",
+    "channel-id": "HGTV.ph"
+  },
+  {
+    "name": "Fashion TV",
+    "logo": "https://cms.cignal.tv/Upload/Images/Fashion-TV.jpg",
+    "channel-id": "FASHION.TV.ph"
+  },
+  {
+    "name": "Discovery",
+    "logo": "https://cms.cignal.tv/Upload/Images/Discovery%20-%20Logo%20-%2030Oct2019.png",
+    "channel-id": "Discovery.ph"
+  },
+  {
+    "name": "Discovery Asia",
+    "logo": "https://cms.cignal.tv/Upload/Images/Discovery-Asia.png",
+    "channel-id": "DISCOVERY.ASIA.ph"
+  },
+  {
+    "name": "Animal Planet",
+    "logo": "https://cms.cignal.tv/Upload/Images/Animal-Planet.jpg",
+    "channel-id": "Animal.Planet.ph"
+  },
+  {
+    "name": "Asian Food Network",
+    "logo": "https://cms.cignal.tv/Upload/Images/AFN%20LOGO_CMYK_final.png",
+    "channel-id": "Asianfoodnetwork.ph"
+  },
+  {
+    "name": "Love Nature",
+    "logo": "https://lovenature.com/wp-content/uploads/2025/02/LoveNature2024_Logo_full_colour-copy.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Fashion TV",
+    "logo": "https://cms.cignal.tv/Upload/Images/Fashion-TV.jpg",
+    "channel-id": "FASHION.TV.ph"
+  },
+  {
+    "name": "Knowledge Channel",
+    "logo": "https://cms.cignal.tv/Upload/Images/Knowledge-Channel.jpg",
+    "channel-id": "Knowledge.Channel.ph"
+  },
+  {
+    "name": "History Channel",
+    "logo": "https://cms.cignal.tv/Upload/Images/History-Updated-Logo-2022.jpg",
+    "channel-id": ""
+  },
+  {
+    "name": "Crime Investigation",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/Crime-and-investigation.jpg",
+    "channel-id": "Crime.Investigation.ph"
+  },
+  {
+    "name": "Global Trekker",
+    "logo": "https://i.imgur.com/Atl3E61.png",
+    "channel-id": "Globaltrekker.ph"
+  },
+  {
+    "name": "Arirang",
+    "logo": "https://cms.cignal.tv/Upload/Images/ARIRANG.png",
+    "channel-id": "ARIRANG.ph"
+  },
+  {
+    "name": "TV5 Monde",
+    "logo": "https://cms.cignal.tv/Upload/Images/TV-Monde-Updated-Logo-2021.png",
+    "channel-id": "Tv5.Monde.ph"
+  },
+  {
+    "name": "Lotus Macau HD",
+    "logo": "https://cms.cignal.tv/Upload/Thumbnails/mo-macau-lotus-tv-3757.png",
+    "channel-id": ""
+  },
+  {
+    "name": "3ABN",
+    "logo": "https://3abn.org/img/logos/3abn-logo-md.jpg",
+    "channel-id": ""
+  },
+  {
+    "name": "EWTN",
+    "logo": "https://cms.cignal.tv/Upload/Images/EWTN.png",
+    "channel-id": ""
+  },
+  {
+    "name": "TBN Asia",
+    "logo": "https://i.imgur.com/YSY1pVv.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Light TV",
+    "logo": "https://cms.cignal.tv/Upload/Images/ZOELIGHT.png",
+    "channel-id": ""
+  },
+  {
+    "name": "TV Maria",
+    "logo": "https://cms.cignal.tv/Upload/Images/TV%20MARIA.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Radio Maria",
+    "logo": "https://cms.cignal.tv/Upload/Images/TV%20MARIA.png",
+    "channel-id": ""
+  },
+  {
+    "name": "Oras ng Himala",
+    "logo": "https://i.imgur.com/hS3dpzi.png",
+    "channel-id": ""
+  },
+  {
+    "name": "PPV",
+    "logo": "https://www.convergeict.com/wp-content/uploads/2024/02/vision-banner-x.png",
+    "channel-id": ""
+  }
+]

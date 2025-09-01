@@ -132,7 +132,7 @@
   {
     "name": "Cinemax",
     "logo": "https://cms.cignal.tv/Upload/Images/Cinemax.jpg",
-    "channel-id": "Cinemax.ph"
+    "channel-id": "CINEMAX.HD.ph"
   },
   {
     "name": "Cinema One",
@@ -147,22 +147,22 @@
   {
     "name": "HBO",
     "logo": "https://cms.cignal.tv/Upload/Images/HBO.jpg",
-    "channel-id": "HBO.ph"
+    "channel-id": "Cg.Hbohd.ph"
   },
   {
     "name": "HBO Family",
     "logo": "https://cms.cignal.tv/Upload/Thumbnails/HBO-Family.jpg",
-    "channel-id": "HBO.FAMILY.ph"
+    "channel-id": "Cg.Hbofam.ph"
   },
   {
     "name": "HBO Hits",
     "logo": "https://cms.cignal.tv/Upload/Images/HBO%20Hits-1.jpg",
-    "channel-id": "HBO.HITS.ph"
+    "channel-id": "Cg.Hbohits.ph"
   },
   {
     "name": "HBO Signature",
     "logo": "https://cms.cignal.tv/Upload/Images/HB-O-SIG1.png",
-    "channel-id": "HBO.SIGNATURE.ph"
+    "channel-id": "Cg.Hbosign.ph"
   },
   {
     "name": "VIVA Cinema",
@@ -192,7 +192,7 @@
   {
     "name": "TMC",
     "logo": "https://cms.cignal.tv/Upload/Images/TMC-Nov-2021-Logo-Updated.png",
-    "channel-id": ""
+    "channel-id": "Cg.Tagalogmovie.ph"
   },
   {
     "name": "Tap Movies",
@@ -227,7 +227,7 @@
   {
     "name": "Premier Sports",
     "logo": "https://cms.cignal.tv/Upload/Thumbnails/Premier-Sports.jpg",
-    "channel-id": "PREMIER.SPORTS.ph"
+    "channel-id": "PREMIERSPORTS1.ph"
   },
   {
     "name": "Premier Sports 2",
@@ -247,7 +247,7 @@
   {
     "name": "Tap Sports",
     "logo": "https://cms.cignal.tv/Upload/Thumbnails/Tap-Sports.jpg",
-    "channel-id": "TAPSPORTS.ph"
+    "channel-id": "Tap.Sports.ph"
   },
   {
     "name": "Edge Sports",
@@ -267,17 +267,17 @@
   {
     "name": "Cartoon Network",
     "logo": "https://cms.cignal.tv/Upload/Images/Cartoon-Network-2022-Logo.jpg",
-    "channel-id": "CARTOON.NETWORK.ph"
+    "channel-id": "Cartoon.Net.Hd.ph"
   },
   {
     "name": "Nick Jr",
     "logo": "https://cms.cignal.tv/Upload/Images/Nick-Jr.jpg",
-    "channel-id": "NICKJR.ph"
+    "channel-id": "Nickjr.ph"
   },
   {
     "name": "Nickelodeon",
     "logo": "https://cms.cignal.tv/Upload/Images/NickLogo_Orange_Outline.png",
-    "channel-id": "NICKELODEON.ph"
+    "channel-id": "Nickelodeon.ph"
   },
   {
     "name": "Animax",
@@ -287,7 +287,7 @@
   {
     "name": "TapTV",
     "logo": "https://cms.cignal.tv/Upload/Images/Tap-TV.jpg",
-    "channel-id": "TAPTV.ph"
+    "channel-id": "Taptv.ph"
   },
   {
     "name": "Tap Edge",
@@ -307,7 +307,7 @@
   {
     "name": "Warner TV",
     "logo": "https://cms.cignal.tv/Upload/Images/Warner-TV.jpg",
-    "channel-id": "WARNER.TV.ph"
+    "channel-id": "Warnertv.Hd.ph"
   },
   {
     "name": "Rock Action",

@@ -94,6 +94,11 @@
       font-size: 14px;
       color: #f1c40f;
     }
+
+    .next-title {
+      font-size: 13px;
+      color: #a0a0a0;
+    }
   </style>
 </head>
 <body>
@@ -133,23 +138,34 @@
       const match = str.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
       if (!match) return new Date();
       const [_, y, m, d, h, min, s] = match;
-      // Use local time instead of UTC
-      return new Date(y, m-1, d, h, min, s);
+      return new Date(y, m-1, d, h, min, s); // local time
     }
 
-    function getCurrentShow(channelId, epgDocs) {
+    function getNowNext(channelId, epgDocs) {
       const now = new Date();
+      let current = null;
+      let next = null;
+
       for (let doc of epgDocs) {
-        const progs = doc.querySelectorAll(`programme[channel='${channelId}']`);
-        for (let prog of progs) {
+        const progs = Array.from(doc.querySelectorAll(`programme[channel='${channelId}']`));
+        progs.sort((a, b) => parseDate(a.getAttribute("start")) - parseDate(b.getAttribute("start")));
+
+        for (let i = 0; i < progs.length; i++) {
+          const prog = progs[i];
           const start = parseDate(prog.getAttribute("start"));
           const stop = parseDate(prog.getAttribute("stop"));
+
           if (now >= start && now < stop) {
-            return prog.querySelector("title")?.textContent || "Untitled";
+            current = prog.querySelector("title")?.textContent || "Untitled";
+            if (i + 1 < progs.length) {
+              next = progs[i + 1].querySelector("title")?.textContent || "Untitled";
+            }
+            break;
           }
         }
       }
-      return null;
+
+      return { now: current, next: next };
     }
 
     async function renderEPG(epgDocs) {
@@ -162,15 +178,17 @@
 
         epgContainer.innerHTML = "";
         channels.forEach((ch) => {
-          const show = getCurrentShow(ch["channel-id"], epgDocs);
-          if (show) {
+          const shows = getNowNext(ch["channel-id"], epgDocs);
+
+          if (shows.now) {
             const div = document.createElement("div");
             div.className = "channel";
             div.innerHTML = `
               <img src="${ch.logo}" alt="${ch.name}">
               <div class="channel-info">
                 <strong>${ch.name}</strong>
-                <div class="show-title">${show}</div>
+                <div class="show-title">Now: ${shows.now}</div>
+                <div class="next-title">Next: ${shows.next || 'TBA'}</div>
               </div>
             `;
             epgContainer.appendChild(div);

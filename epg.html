@@ -33,7 +33,7 @@
     header h1 {
       font-size: 20px;
       margin: 0;
-      color: #1db954; /* Skywatch green */
+      color: #1db954;
     }
 
     .back-btn {
@@ -102,7 +102,6 @@
       <img src="logo.png" alt="Skywatch Logo">
       <h1>Skywatch</h1>
     </div>
-    <!-- Back button always goes to homepage -->
     <button class="back-btn" onclick="window.location.href='https://skywatch-sigma.vercel.app/'">⬅ Back</button>
   </header>
 
@@ -130,6 +129,14 @@
       return results.filter(Boolean);
     }
 
+    function parseDate(str) {
+      const match = str.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
+      if (!match) return new Date();
+      const [_, y, m, d, h, min, s] = match;
+      // Use local time instead of UTC
+      return new Date(y, m-1, d, h, min, s);
+    }
+
     function getCurrentShow(channelId, epgDocs) {
       const now = new Date();
       for (let doc of epgDocs) {
@@ -145,13 +152,6 @@
       return null;
     }
 
-    function parseDate(str) {
-      const match = str.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
-      if (!match) return new Date();
-      const [_, y, m, d, h, min, s] = match;
-      return new Date(`${y}-${m}-${d}T${h}:${min}:${s}Z`);
-    }
-
     async function renderEPG(epgDocs) {
       const epgContainer = document.getElementById("epg");
       epgContainer.innerHTML = "Loading channels...";
@@ -163,8 +163,7 @@
         epgContainer.innerHTML = "";
         channels.forEach((ch) => {
           const show = getCurrentShow(ch["channel-id"], epgDocs);
-
-          if (show) { // only display if there’s a current show
+          if (show) {
             const div = document.createElement("div");
             div.className = "channel";
             div.innerHTML = `

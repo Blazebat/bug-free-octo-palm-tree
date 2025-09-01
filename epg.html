@@ -104,9 +104,7 @@
 
   <div id="epg">Loading...</div>
 
-  <script type="module">
-    import channels from "./channels.js";
-
+  <script>
     const EPG_URLS = [
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH1.xml.gz",
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH2.xml.gz"
@@ -150,24 +148,32 @@
       return new Date(`${y}-${m}-${d}T${h}:${min}:${s}Z`);
     }
 
-    function renderEPG(epgDocs) {
+    async function renderEPG(epgDocs) {
       const epgContainer = document.getElementById("epg");
-      epgContainer.innerHTML = "";
+      epgContainer.innerHTML = "Loading channels...";
 
-      channels.forEach((ch) => {
-        const show = getCurrentShow(ch.name, epgDocs);
+      try {
+        const res = await fetch("./channels.json");
+        const channels = await res.json();
 
-        const div = document.createElement("div");
-        div.className = "channel";
-        div.innerHTML = `
-          <img src="${ch.logo}" alt="${ch.name}">
-          <div class="channel-info">
-            <strong>${ch.name}</strong>
-            <div class="show-title">${show || "No show info"}</div>
-          </div>
-        `;
-        epgContainer.appendChild(div);
-      });
+        epgContainer.innerHTML = "";
+        channels.forEach((ch) => {
+          const show = getCurrentShow(ch["channel-id"], epgDocs);
+
+          const div = document.createElement("div");
+          div.className = "channel";
+          div.innerHTML = `
+            <img src="${ch.logo}" alt="${ch.name}">
+            <div class="channel-info">
+              <strong>${ch.name}</strong>
+              <div class="show-title">${show || "No show info"}</div>
+            </div>
+          `;
+          epgContainer.appendChild(div);
+        });
+      } catch (err) {
+        epgContainer.innerHTML = "Failed to load channels.";
+      }
     }
 
     async function updateEPG() {

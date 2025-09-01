@@ -4,109 +4,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skywatch</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #ffffff;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1e1e1e;
+      padding: 10px 15px;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      margin: 0;
+      color: #1db954; /* Skywatch green */
+    }
+
+    header button {
+      background: #ff4757;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    header button:hover {
+      background: #e84118;
+    }
+
+    #epg {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .channel {
+      display: flex;
+      align-items: center;
+      background: #2a2a2a;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .channel img {
+      width: 60px;
+      height: 40px;
+      object-fit: contain;
+      margin-right: 15px;
+      border-radius: 4px;
+      background: white;
+      padding: 3px;
+    }
+
+    .channel-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .channel-info strong {
+      font-size: 16px;
+      color: #1db954; /* highlight Skywatch green */
+    }
+
+    .show-title {
+      font-size: 14px;
+      color: #f1c40f; /* yellow highlight for current show */
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <img src="logo.png" alt="Skywatch" class="logo">
-    <h1>Skywatch</h1>
-    <button onclick="window.location.href='https://skywatch-sigma.vercel.app'" id="backButton">← Back</button>
+    <div class="logo-title">
+      <img src="logo.png" alt="Skywatch Logo">
+      <h1>Skywatch</h1>
+    </div>
+    <button onclick="history.back()">⬅ Back</button>
   </header>
 
-  <!-- Main EPG List -->
-  <main id="epgList" style="margin-top:60px; margin-bottom:40px; overflow-y:auto; flex:1; padding:10px;"></main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <span>© 2025 RageTV Plus</span>
-    </div>
-  </footer>
+  <div id="epg">Loading...</div>
 
   <script type="module">
-    import handler from "./channels.js";
+    import channels from "./channels.js";
 
-    // extract "channels" array from handler()
-    const channelsData = (() => {
-      let res = {};
-      handler({}, { json: obj => res = obj });
-      return res.channels || [];
-    })();
-
-    const epgUrls = [
+    const EPG_URLS = [
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH1.xml.gz",
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH2.xml.gz"
     ];
 
-    const epgList = document.getElementById("epgList");
+    async function fetchEPGs() {
+      const results = await Promise.all(
+        EPG_URLS.map(async (url) => {
+          try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error(`Failed ${url}`);
+            const xml = await res.text();
+            return new window.DOMParser().parseFromString(xml, "text/xml");
+          } catch {
+            return null;
+          }
+        })
+      );
+      return results.filter(Boolean);
+    }
 
-    async function loadEPG() {
-      try {
-        let xmlText = "";
-        for (let url of epgUrls) {
-          const res = await fetch(url);
-          if (res.ok) {
-            xmlText = await res.text();
-            if (xmlText) break;
+    function getCurrentShow(channelId, epgDocs) {
+      const now = new Date();
+      for (let doc of epgDocs) {
+        const progs = doc.querySelectorAll(`programme[channel='${channelId}']`);
+        for (let prog of progs) {
+          const start = parseDate(prog.getAttribute("start"));
+          const stop = parseDate(prog.getAttribute("stop"));
+          if (now >= start && now < stop) {
+            return prog.querySelector("title")?.textContent || "Untitled";
           }
         }
-        if (!xmlText) throw new Error("No EPG data");
-
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(xmlText, "text/xml");
-
-        const channels = [...xml.querySelectorAll("channel")];
-        const progs = [...xml.querySelectorAll("programme")];
-
-        const now = new Date();
-        const manilaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
-
-        epgList.innerHTML = "";
-
-        channels.forEach(ch => {
-          const id = ch.getAttribute("id");
-          const name = ch.querySelector("display-name")?.textContent || "Unnamed";
-
-          // Look up logo from channels.js
-          const match = channelsData.find(c => c.name.toLowerCase() === name.toLowerCase());
-          const logo = match?.logo || "default-logo.png";
-
-          // Find current program
-          const current = progs.find(p => {
-            if (p.getAttribute("channel") !== id) return false;
-            const start = parseDate(p.getAttribute("start"));
-            const stop = parseDate(p.getAttribute("stop"));
-            return manilaTime >= start && manilaTime < stop;
-          });
-
-          const title = current ? current.querySelector("title")?.textContent : "No show right now";
-
-          const card = document.createElement("div");
-          card.className = "channel-card";
-          card.innerHTML = `
-            <img src="${logo}" alt="${name}">
-            <span><b>${name}</b></span>
-            <span>${title}</span>
-          `;
-          epgList.appendChild(card);
-        });
-
-      } catch (err) {
-        epgList.innerHTML = `<p style="color:red;">Error loading EPG: ${err.message}</p>`;
       }
+      return null;
     }
 
     function parseDate(str) {
-      if (!str) return new Date(0);
       const match = str.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
-      if (!match) return new Date(0);
-      const [_, y, m, d, hh, mm, ss] = match;
-      return new Date(`${y}-${m}-${d}T${hh}:${mm}:${ss}+08:00`); // Manila TZ
+      if (!match) return new Date();
+      const [_, y, m, d, h, min, s] = match;
+      return new Date(`${y}-${m}-${d}T${h}:${min}:${s}Z`);
     }
 
-    loadEPG();
-    setInterval(loadEPG, 3600000); // refresh every hour
+    function renderEPG(epgDocs) {
+      const epgContainer = document.getElementById("epg");
+      epgContainer.innerHTML = "";
+
+      channels.forEach((ch) => {
+        const show = getCurrentShow(ch.name, epgDocs);
+
+        const div = document.createElement("div");
+        div.className = "channel";
+        div.innerHTML = `
+          <img src="${ch.logo}" alt="${ch.name}">
+          <div class="channel-info">
+            <strong>${ch.name}</strong>
+            <div class="show-title">${show || "No show info"}</div>
+          </div>
+        `;
+        epgContainer.appendChild(div);
+      });
+    }
+
+    async function updateEPG() {
+      const epgDocs = await fetchEPGs();
+      renderEPG(epgDocs);
+    }
+
+    updateEPG();
+    setInterval(updateEPG, 60 * 60 * 1000); // refresh every hour
   </script>
 </body>
 </html>

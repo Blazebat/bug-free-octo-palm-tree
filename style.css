@@ -34,12 +34,32 @@ header h1 {
   margin: 0;
 }
 
-#searchBar {
+.header-right {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#searchBar {
   padding: 5px 10px;
   border-radius: 4px;
   border: none;
   outline: none;
+}
+
+.guide-link {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.guide-link:hover {
+  background: rgba(0, 191, 255, 0.2);
 }
 
 #togglePanel {
@@ -185,6 +205,10 @@ footer {
     width: 70%;
   }
   #searchBar {
-    width: 100px;
+    width: 90px;
+  }
+  .guide-link {
+    font-size: 12px;
+    padding: 4px 6px;
   }
 }

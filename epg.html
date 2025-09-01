@@ -1,244 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Skywatch Live EPG</title>
-  <link rel="icon" href="logo.png" />
-  <style>
-    /* General layout */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #121212;
-      color: white;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    /* Header fixed */
-    header {
-      height: 60px;
-      background: #1e1e1e;
-      display: flex;
-      align-items: center;
-      padding: 0 15px;
-      gap: 10px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-
-    header .logo {
-      height: 40px;
-    }
-
-    header h1 {
-      font-size: 18px;
-      margin: 0;
-    }
-
-    .back-btn {
-      background: #333;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-      margin-left: auto;
-    }
-
-    /* Footer fixed */
-    footer {
-      height: 40px;
-      background: #1e1e1e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-top: 1px solid #333;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-
-    .footer-content {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #bbb;
-      font-size: 14px;
-    }
-
-    .footer-logo {
-      height: 24px;
-      object-fit: contain;
-    }
-
-    /* Main EPG container */
-    #epgArea {
-      margin-top: 60px;
-      margin-bottom: 40px;
-      flex: 1;
-      overflow-y: auto;
-      padding: 10px;
-    }
-
-    .channel-row {
-      background: #1e1e1e;
-      border-radius: 6px;
-      padding: 10px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .channel-logo {
-      width: 60px;
-      height: 40px;
-      object-fit: contain;
-      background: #272727;
-      border-radius: 4px;
-    }
-
-    .show-info {
-      flex: 1;
-    }
-
-    .channel-name {
-      font-size: 14px;
-      font-weight: bold;
-      margin: 0 0 4px;
-    }
-
-    .show-title {
-      font-size: 13px;
-      color: #ddd;
-      margin: 0;
-    }
-
-    .show-time {
-      font-size: 12px;
-      color: #bbb;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skywatch EPG</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
     <img src="logo.png" alt="Skywatch" class="logo">
-    <h1>Skywatch Live EPG</h1>
-    <button class="back-btn" onclick="window.location.href='https://skywatch-sigma.vercel.app'">← Back</button>
+    <h1>Skywatch EPG</h1>
+    <button onclick="window.location.href='https://skywatch-sigma.vercel.app'" id="backButton">← Back</button>
   </header>
 
-  <main id="epgArea">
-    <p>Loading live EPG data...</p>
-  </main>
+  <!-- Main EPG List -->
+  <main id="epgList" style="margin-top:60px; margin-bottom:40px; overflow-y:auto; flex:1; padding:10px;"></main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <img src="logo.png" alt="Skywatch" class="footer-logo">
-      <span>Skywatch © 2025</span>
+      <span>© 2025 Skywatch</span>
     </div>
   </footer>
 
-  <script>
+  <script type="module">
+    import handler from "./channels.js";
+
+    // extract "channels" array from handler()
+    const channelsData = (() => {
+      let res = {};
+      handler({}, { json: obj => res = obj });
+      return res.channels || [];
+    })();
+
     const epgUrls = [
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH1.xml.gz",
       "https://cignal1.vercel.app/api/proxy-epg?url=https%3A%2F%2Fepgshare01.online%2Fepgshare01%2Fepg_ripper_PH2.xml.gz"
     ];
 
+    const epgList = document.getElementById("epgList");
+
     async function loadEPG() {
-      const epgArea = document.getElementById("epgArea");
-      for (const url of epgUrls) {
-        try {
+      try {
+        let xmlText = "";
+        for (let url of epgUrls) {
           const res = await fetch(url);
-          if (!res.ok) throw new Error("Failed to fetch EPG");
-          const xmlText = await res.text();
-          const parser = new DOMParser();
-          const xml = parser.parseFromString(xmlText, "application/xml");
+          if (res.ok) {
+            xmlText = await res.text();
+            if (xmlText) break;
+          }
+        }
+        if (!xmlText) throw new Error("No EPG data");
 
-          const channels = xml.querySelectorAll("channel");
-          const programmes = xml.querySelectorAll("programme");
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(xmlText, "text/xml");
 
-          epgArea.innerHTML = "";
+        const channels = [...xml.querySelectorAll("channel")];
+        const progs = [...xml.querySelectorAll("programme")];
 
-          const now = new Date();
+        const now = new Date();
+        const manilaTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
 
-          channels.forEach(channel => {
-            const id = channel.getAttribute("id");
-            const name = channel.querySelector("display-name")?.textContent || id;
-            const icon = channel.querySelector("icon")?.getAttribute("src") || "logo.png";
+        epgList.innerHTML = "";
 
-            // find current programme
-            const current = Array.from(programmes).find(p => {
-              if (p.getAttribute("channel") !== id) return false;
-              const start = parseEPGDate(p.getAttribute("start"));
-              const end = parseEPGDate(p.getAttribute("stop"));
-              return now >= start && now <= end;
-            });
+        channels.forEach(ch => {
+          const id = ch.getAttribute("id");
+          const name = ch.querySelector("display-name")?.textContent || "Unnamed";
 
-            if (current) {
-              const title = current.querySelector("title")?.textContent || "No title";
-              const start = current.getAttribute("start");
-              const end = current.getAttribute("stop");
+          // Look up logo from channels.js
+          const match = channelsData.find(c => c.name.toLowerCase() === name.toLowerCase());
+          const logo = match?.logo || "default-logo.png";
 
-              const showTime = formatTimeRange(start, end);
-
-              epgArea.innerHTML += `
-                <div class="channel-row">
-                  <img src="${icon}" class="channel-logo" onerror="this.src='logo.png'">
-                  <div class="show-info">
-                    <p class="channel-name">${name}</p>
-                    <p class="show-title">${title}</p>
-                    <p class="show-time">${showTime}</p>
-                  </div>
-                </div>
-              `;
-            }
+          // Find current program
+          const current = progs.find(p => {
+            if (p.getAttribute("channel") !== id) return false;
+            const start = parseDate(p.getAttribute("start"));
+            const stop = parseDate(p.getAttribute("stop"));
+            return manilaTime >= start && manilaTime < stop;
           });
 
-          if (!epgArea.innerHTML.trim()) {
-            epgArea.innerHTML = "<p>No live shows found at this moment.</p>";
-          }
-          return; // success
-        } catch (e) {
-          console.error("EPG load error from", url, e);
-        }
+          const title = current ? current.querySelector("title")?.textContent : "No show right now";
+
+          const card = document.createElement("div");
+          card.className = "channel-card";
+          card.innerHTML = `
+            <img src="${logo}" alt="${name}">
+            <span><b>${name}</b></span>
+            <span>${title}</span>
+          `;
+          epgList.appendChild(card);
+        });
+
+      } catch (err) {
+        epgList.innerHTML = `<p style="color:red;">Error loading EPG: ${err.message}</p>`;
       }
-      epgArea.innerHTML = "<p>Failed to load EPG data.</p>";
     }
 
-    function parseEPGDate(str) {
-      const match = str.match(/(\d{14})\s?([+\-]\d{4})?/);
-      if (!match) return new Date();
-      const [ , datetime, offset ] = match;
-      const year = datetime.slice(0,4);
-      const month = datetime.slice(4,6);
-      const day = datetime.slice(6,8);
-      const hour = datetime.slice(8,10);
-      const min = datetime.slice(10,12);
-      const sec = datetime.slice(12,14);
-      return new Date(`${year}-${month}-${day}T${hour}:${min}:${sec}${offset || "+0800"}`);
+    function parseDate(str) {
+      if (!str) return new Date(0);
+      const match = str.match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/);
+      if (!match) return new Date(0);
+      const [_, y, m, d, hh, mm, ss] = match;
+      return new Date(`${y}-${m}-${d}T${hh}:${mm}:${ss}+08:00`); // Manila TZ
     }
 
-    function formatTimeRange(start, end) {
-      const options = { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Manila' };
-      const s = parseEPGDate(start).toLocaleTimeString('en-PH', options);
-      const e = parseEPGDate(end).toLocaleTimeString('en-PH', options);
-      return `${s} - ${e} (Manila)`;
-    }
-
-    // Initial load
     loadEPG();
-    // Refresh every hour (3600000 ms)
-    setInterval(loadEPG, 3600000);
+    setInterval(loadEPG, 3600000); // refresh every hour
   </script>
 </body>
 </html>

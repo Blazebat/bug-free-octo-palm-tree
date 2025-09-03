@@ -44,7 +44,7 @@ const channels = [
     },
     {
         "name": "Kapamilya Channel",
-        "url": "https://ragetb.onrender.com/001/2/ch00000090990000001248/manifest.mpd?AuthInfo=d85e93&JITPDRMType=Widevine&virtualDomain=001.live_hls.zte.com",
+        "url": "https://ragetb.onrender.com/001/2/ch00000090990000001286/manifest.mpd?AuthInfo=d85e93&JITPDRMType=Widevine&virtualDomain=001.live_hls.zte.com",
         "logo": "https://cms.cignal.tv/Upload/Images/Kapamilya-Channel-HD.jpg",
         "keyId": "99e6ac12e81842888aea7527b063f9f5",
         "key": "5dbf69183180f17e80cf65b394748518"

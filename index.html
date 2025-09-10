@@ -5,7 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Skywatch</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+
+  <!-- Video.js CSS -->
+  <link href="https://vjs.zencdn.net/8.12.0/video-js.css" rel="stylesheet" />
+
+  <!-- Video.js + contrib-dash -->
+  <script src="https://vjs.zencdn.net/8.12.0/video.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-dash@latest/dist/videojs-dash.min.js"></script>
 </head>
 <body>
   <!-- Header -->
@@ -26,10 +32,16 @@
 
   <!-- Main player area -->
   <div id="playerArea">
-    <!-- Video container -->
-    <div class="player-container">
-      <video id="videoPlayer" controls autoplay></video>
-    </div>
+    <!-- Video.js player -->
+    <video
+      id="videoPlayer"
+      class="video-js vjs-default-skin"
+      controls
+      autoplay
+      muted
+      width="100%"
+      height="auto"
+    ></video>
 
     <!-- Player note -->
     <p class="player-note">
@@ -45,6 +57,7 @@
     </div>
   </footer>
 
+  <!-- Your custom script -->
   <script src="script.js"></script>
 </body>
 </html>

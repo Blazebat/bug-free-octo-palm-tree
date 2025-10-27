@@ -40,25 +40,9 @@ const channels = [
         "key": "47635b8e885e19f2ccbdff078c207058"
     },
     {
-    "name": "K+",
-    "url": "http://linearjitp-playback.astro.com.my/dash-wv/linear/9983/default_ott.mpd",
-    "logo": "https://i.imgur.com/Nd9gqA2.png",
-    "keyId": "aa48b28bd723f91214887df6ed9fad10",
-    "key": "b5a3a800848120c843ae0fa68c09c261"
-    },
-    {
-        "name": "GMA Life TV",
-        "url": "https://abs.xyadx.workers.dev/stream/2099524/gmalf/manifest.mpd",
-        "logo": "https://pql-static.abs-cbn.com/images/live/GMALTV_LIVETHUMB_600X600_V1.jpg",
-        "keyId": "369bcd591a7e42cea6a829879962ee77",
-        "key": "7c0548d4ea14676297c0a36ea0e06301"
-    },
-    {
-        "name": "GMA News TV",
-        "url": "https://abs.xyadx.workers.dev/stream/2099526/gmanw/manifest.mpd",
-        "logo": "https://pql-static.abs-cbn.com/images/live/GMANTV_LIVETHUMB_600X600_V1.jpg",
-        "keyId": "f1d76704a9f84ce28e7e3d154c7dc5b1",
-        "key": "36d98c5b0aad47b256629e57a651e3d8"
+    "name": "AsianCrush",
+    "url": "https://cineverse.g-mana.live/media/1ebfbe30-c35c-4404-8bc5-0339d750eb58/mainManifest.m3u8?app_bundle=https://www.asiancrush.com&app_name=asiancrush&app_store_url=&url=https://www.asiancrush.com&genre=Documentary,Independent,Sci-Fi%20&%20Fantasy,Kids%20&%20Family,Drama,Romance,Comedy,Action%20&%20Adventure,Sports&ic=&us_privacy=1YNN&gdpr=0&gdpr_consent=0&did=vir_webe2f1f1c449b2b43d72e1a991a25f2666&dnt=1&coppa=0",
+    "logo": "https://www.asiancrush.com/images/asiancrush/asiancrush_logo_image.png?imwidth=640"
     },
     {
         "name": "Pilipinas Live 1",

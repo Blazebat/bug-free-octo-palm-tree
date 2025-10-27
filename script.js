@@ -40,6 +40,13 @@ const channels = [
         "key": "47635b8e885e19f2ccbdff078c207058"
     },
     {
+    "name": "K+",
+    "url": "http://linearjitp-playback.astro.com.my/dash-wv/linear/9983/default_ott.mpd",
+    "logo": "https://i.imgur.com/Nd9gqA2.png",
+    "keyId": "aa48b28bd723f91214887df6ed9fad10",
+    "key": "b5a3a800848120c843ae0fa68c09c261"
+    },
+    {
         "name": "GMA Life TV",
         "url": "https://abs.xyadx.workers.dev/stream/2099524/gmalf/manifest.mpd",
         "logo": "https://pql-static.abs-cbn.com/images/live/GMALTV_LIVETHUMB_600X600_V1.jpg",

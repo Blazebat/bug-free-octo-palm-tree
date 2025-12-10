@@ -46,10 +46,10 @@ const channels = [
     },
     {
         "name": "Pilipinas Live 1",
-        "url": "https://qp-pldt-live-grp-08-prod.akamaized.net/out/u/pl_sdi1.mpd",
+        "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/pl_sdi1/default/index.mpd",
         "logo": "https://i.imgur.com/FlT7LFR.png",
-        "keyId": "a913faeecaac4813a55240bea0c68858",
-        "key": "05b7d7eaba8d6410dbe234336d9b235a"
+        "keyId": "27059dc8b75841e7a511e67d5e069ae2",
+        "key": "b7217f85cb0a1dd7113ed307c363d0df"
     },
     {
         "name": "Pilipinas Live 2",

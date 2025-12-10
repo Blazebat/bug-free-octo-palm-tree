@@ -45,6 +45,20 @@ const channels = [
     "logo": "https://www.asiancrush.com/images/asiancrush/asiancrush_logo_image.png?imwidth=640"
     },
     {
+        "name": "Team Philippines",
+        "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/pp_ch1_pri/default/index.mpd",
+        "logo": "https://qp-pldtcms-image-resizer-cloud-prod.akamaized.net/image/45F31D3C-B6C3-43BE-9FCA-DCE3AFD8B3F5/0-16x9.jpg?width=240",
+        "keyId": "0f873dc6412b11edb8780242ac120002",
+        "key": "7511efa4f5f1f82fe61776ba3b49fc10"
+    },
+    {
+        "name": "Team Sports",
+        "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/pp_ch2_pri/default/index.mpd",
+        "logo": "https://qp-pldtcms-image-resizer-cloud-prod.akamaized.net/image/92391F2D-EAF3-4705-A2B2-BB8C516E8B89/0-16x9.jpg?width=240",
+        "keyId": "4fef00332d7e4fbc8f7005dfbf851a59",
+        "key": "a6368c181358f3e527411a6c452c6a1a"
+    },    
+    {
         "name": "Pilipinas Live 1",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/pl_sdi1/default/index.mpd",
         "logo": "https://i.imgur.com/FlT7LFR.png",

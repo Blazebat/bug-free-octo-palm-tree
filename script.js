@@ -48,7 +48,7 @@ const channels = [
         "name": "ESPN",
         "url": "http://104.255.88.155/espn/index.m3u8",
         "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/330px-ESPN_wordmark.svg.png",
-    }   
+    },   
     {
         "name": "NBA on Prime",
         "url": "https://ottb.live.cf.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/2jbycgm3g3/out/v1/066dd9325648468c9ecdc8b272370931/cenc.mpd",

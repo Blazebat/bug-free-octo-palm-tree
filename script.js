@@ -46,7 +46,7 @@ const channels = [
     },
     {
         "name": "ESPN",
-        "url": "https://a1xs.vip/40000011",
+        "url": "http://snowbank.houseinventer.com/6500/index.m3u8",
         "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/330px-ESPN_wordmark.svg.png",
     },   
     {

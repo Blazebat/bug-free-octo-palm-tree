@@ -44,6 +44,11 @@ const channels = [
     "url": "https://dbrb49pjoymg4.cloudfront.net/10001/99991386/hls/master.m3u8?includeAssetTags=true&ads.xumo_channelId=99991386",
     "logo": "https://static.wixstatic.com/media/fbfe8c_b357f895b90640d28cdb614832824145~mv2.png/v1/fill/w_382,h_130,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/kmovie%20logo%20%EB%B3%B5%EC%82%AC.png"
     },
+     {
+        "name": "ESPN",
+        "url": "http://104.255.88.155/espn/index.m3u8",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/330px-ESPN_wordmark.svg.png",
+    }   
     {
         "name": "NBA on Prime",
         "url": "https://ottb.live.cf.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/2jbycgm3g3/out/v1/066dd9325648468c9ecdc8b272370931/cenc.mpd",

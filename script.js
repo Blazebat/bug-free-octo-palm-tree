@@ -45,6 +45,20 @@ const channels = [
     "logo": "https://static.wixstatic.com/media/fbfe8c_b357f895b90640d28cdb614832824145~mv2.png/v1/fill/w_382,h_130,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/kmovie%20logo%20%EB%B3%B5%EC%82%AC.png"
     },
     {
+        "name": "NBA on Prime",
+        "url": "https://ottb.live.cf.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/2jbycgm3g3/out/v1/066dd9325648468c9ecdc8b272370931/cenc.mpd",
+        "logo": "https://i.imgur.com/6Ehca8Q.jpeg",
+        "keyId": "84077d18bcf234a42de3745be106a87f",
+        "key": "aee3069c062ec8ee6bfdd32985f287ef"
+    },
+    {
+        "name": "NFL Network",
+        "url": "https://ac-009.live.p7s1video.net/e0e064c8/t_004/ran-nflnetwork-de-hd/cenc-default.mpd",
+        "logo": "https://i.postimg.cc/xdnppLvX/NFL.png",
+        "keyId": "b26a662a10074eb0756404c8e90e765a",
+        "key": "76e376bd25f92bed939435d982f92d3f"
+    },   
+    {
         "name": "Team Philippines",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/pp_ch1_pri/default/index.mpd",
         "logo": "https://qp-pldtcms-image-resizer-cloud-prod.akamaized.net/image/45F31D3C-B6C3-43BE-9FCA-DCE3AFD8B3F5/0-16x9.jpg?width=240",

@@ -52,11 +52,9 @@ const channels = [
         "key": "aee3069c062ec8ee6bfdd32985f287ef"
     },
     {
-        "name": "NFL Network",
-        "url": "https://ac-009.live.p7s1video.net/e0e064c8/t_004/ran-nflnetwork-de-hd/cenc-default.mpd",
-        "logo": "https://i.postimg.cc/xdnppLvX/NFL.png",
-        "keyId": "b26a662a10074eb0756404c8e90e7l65a",
-        "key": "76e376bd25f92bed939435d982f92d3f"
+        "name": "GMA",
+        "url": "https://gsattv.akamaized.net/live/media0/gma7/Fairplay/gma7.m3u8",
+        "logo": "https://cms.cignal.tv/Upload/Images/GMA7.png",
     },   
     {
         "name": "Team Philippines",

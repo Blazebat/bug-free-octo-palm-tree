@@ -57,11 +57,11 @@ const channels = [
         "logo": "https://cms.cignal.tv/Upload/Images/GMA7.png",
     },   
     {
-        "name": "Team Philippines",
-        "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/pp_ch1_pri/default/index.mpd",
-        "logo": "https://qp-pldtcms-image-resizer-cloud-prod.akamaized.net/image/45F31D3C-B6C3-43BE-9FCA-DCE3AFD8B3F5/0-16x9.jpg?width=240",
-        "keyId": "0f873dc6412b11edb8780242ac120002",
-        "key": "7511efa4f5f1f82fe61776ba3b49fc10"
+        "name": "Kapatid Channel",
+        "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/kapatid_hd/default/index.mpd",
+        "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/F222CD8E-81E5-4D77-AC2F-86E7129C2DD7/0-16x9.jpg?width=1980",
+        "keyId": "045d103180f64562b1db7c932741c3ba",
+        "key": "c3380548b9075c767a6ae2006ef4bff8"
     },
     {
         "name": "Team Sports",

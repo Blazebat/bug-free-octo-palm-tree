@@ -144,8 +144,8 @@ const channels = [
         "name": "One PH",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/oneph_sd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A9392-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1800",
-        "keyId": "92834ab4a7e1499b90886c5d49220e46",
-        "key": "a7108d9a6cfcc1b7939eb111daf09ab3"
+        "keyId": "b1c7e9d24f8a4d6c9e337a2f1c5b8d60",
+        "key": "8ff2e524cc1e028f2a4d4925e860c796"
     },
     {
         "name": "Buko",
@@ -186,8 +186,8 @@ const channels = [
         "name": "One News",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/onenews_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A7DDA-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "d39eb201ae494a0b98583df4d110e8dd",
-        "key": "6797066880d344422abd3f5eda41f45f"
+        "keyId": "2e6a9d7c1f4b4c8a8d33c7b1f0a5e924",
+        "key": "4c71e178d090332fbfe72e023b59f6d2"
     },
     {
         "name": "RPTV",
@@ -207,19 +207,19 @@ const channels = [
         "name": "TrueTV",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/truefm_tv/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/4514F052-94DC-47C5-8BB1-DA42BD5F2F57/0-16x9.jpg?width=1990",
-        "keyId": "0559c95496d44fadb94105b9176c3579",
-        "key": "40d8bb2a46ffd03540e0c6210ece57ce"
+        "keyId": "a4e2b9d61c754f3a8d109b6c2f1e7a55",
+        "key": "1d8d975f0bc2ed90eda138bd31f173f4"
     },
     {
         "name": "A2Z",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_a2z/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A5580-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "f703e4c8ec9041eeb5028ab4248fa094",
-        "key": "c22f2162e176eee6273a5d0b68d19530"
+        "keyId": "4019f9269b9054a2b9e257b114ebbaf2",
+        "key": "3f6d8a2c1b7e4c9f8d52a7e1b0c6f93d"
     },
     {
         "name": "Bilyonaryo Channel",
-        "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/bilyonaryoch/default1/index.mpd",
+        "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/bilyonaryoch/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/166677E4-33C5-4C3B-A09D-7B3442D99E77/0-16x9.jpg?width=1980",
         "keyId": "227ffaf09bec4a889e0e0988704d52a2",
         "key": "b2d0dce5c486891997c1c92ddaca2cd2"
@@ -277,8 +277,8 @@ const channels = [
         "name": "HBO",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hbohd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/B741DD7A-A7F8-4F8A-A549-9EF411020F9D/0-16x9.jpg?width=1980",
-        "keyId": "d47ebabf7a21430b83a8c4b82d9ef6b1",
-        "key": "54c213b2b5f885f1e0290ee4131d425b"
+        "keyId": "c2b7a1e95d4f4c3a8e617f9d0a2b6c18",
+        "key": "27fca1ab042998b0c2f058b0764d7ed4"
     },
     {
         "name": "HBO Hits",
@@ -305,8 +305,8 @@ const channels = [
         "name": "HITS Movies",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/dr_hitsmovies/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55ACF06-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "f56b57b32d7e4b2cb21748c0b56761a7",
-        "key": "3df06a89aa01b32655a77d93e09e266f"
+        "keyId": "2c8a5f1e7b9d4c6a9e55f1d7b2a8c360",
+        "key": "c9f622dff27e9e1c1f78617ba3b81a62"
     },
     {
         "name": "Tap Action Flix",
@@ -326,15 +326,15 @@ const channels = [
         "name": "NBA TV  Philippines",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cgnl_nba/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/3327FF64-3E52-42DE-B516-4629BFABA8C7/0-16x9.jpg?width=1980",
-        "keyId": "c5e51f41ceac48709d0bdcd9c13a4d88",
-        "key": "20b91609967e472c27040716ef6a8b9a"
+        "keyId": "d1f8a0c97b3d4e529a6f2c4b8d7e1f90",
+        "key": "58ab331d14b66bf31aca4284e0a3e536"
     },
     {
         "name": "PBA Rush",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_pbarush_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A7650-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "76dc29dd87a244aeab9e8b7c5da1e5f3",
-        "key": "95b2f2ffd4e14073620506213b62ac82"
+        "keyId": "d7f1a9c36b2e4f8d9a441c5e7b2d8f60",
+        "key": "fb83c86f600ab945e7e9afed8376eb1e"
     },
     {
         "name": "One Sports HD Cignal",
@@ -347,8 +347,8 @@ const channels = [
         "name": "One Sports Plus",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_onesportsplus_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A696C-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "322d06e9326f4753a7ec0908030c13d8",
-        "key": "1e3e0ca32d421fbfec86feced0efefda"
+        "keyId": "f00bd0122a8a4da1a49ea6c49f7098ad",
+        "key": "a4079f3667ba4c2bcfdeb13e45a6e9c6"
     },
     {
         "name": "UAAP Varsity Channel",
@@ -361,8 +361,8 @@ const channels = [
         "name": "TAP Sports",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/dr_tapsports/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A6624-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "eabd2d95c89e42f2b0b0b40ce4179ea0",
-        "key": "0e7e35a07e2c12822316c0dc4873903f"
+        "keyId": "5e7c1b9a2d8f4a6c9f30b1d6e2a8c744",
+        "key": "6178d9d177689eec5028e2dd608ae7b6"
     },
     {
         "name": "Premier Sports",
@@ -394,7 +394,7 @@ const channels = [
     },
     {
         "name": "Knowledge Channel",
-        "url": "https://qp-pldt-live-grp-13-prod.akamaized.net/out/u/dr_knowledgechannel.mpd",
+        "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/knowledge_channel/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55ADA5A-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1000",
         "keyId": "0f856fa0412b11edb8780242ac120002",
         "key": "783374273ef97ad3bc992c1d63e091e7"
@@ -403,15 +403,15 @@ const channels = [
         "name": "Animax",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_animax_sd_new/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55ABB06-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "92032b0e41a543fb9830751273b8debd",
-        "key": "03f8b65e2af785b10d6634735dbe6c11"
+        "keyId": "1e7b9d2c6a4f4d8c9f33b5c1a8d7e260",
+        "key": "67336c0c5b24fb4b8caac248dad3c55d"
     },
     {
         "name": "DreamWorks HD",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_dreamworks_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A5698-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "4ab9645a2a0a47edbd65e8479c2b9669",
-        "key": "8cb209f1828431ce9b50b593d1f44079"
+        "keyId": "7b1e9c4d5a2f4d8c9f106d3a8b2c1e77",
+        "key": "8b2904224c6cee13d2d4e06c0a3b2887"
     },
     {
         "name": "Dreamworks Tagalog",
@@ -450,11 +450,10 @@ const channels = [
     },
     {
         "name": "Warner TV",
-        "url": "https://qp-pldt-live-grp-11-prod.akamaized.net/out/u/dr_warnertvhd.mpd",
+        "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_warnerhd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55ABA02-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "4503cf86bca3494ab95a77ed913619a0",
-        "key": "afc9c8f627fb3fb255dee8e3b0fe1d71"
-    },
+        "keyId": "7f2a9c6d1e5b4c8a8d10a2b7e1c9f344",
+        "key": "ae3d135d5ddd9e8f3a7bbfbfae0e40d1},
     {
         "name": "TVN Premium",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_tvnpre/default/index.mpd",
@@ -473,22 +472,22 @@ const channels = [
         "name": "AXN",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_axn_sd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55AC36C-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "fd5d928f5d974ca4983f6e9295dfe410",
-        "key": "3aaa001ddc142fedbb9d5557be43792f"
+        "keyId": "8a6c2f1e9d7b4c5aa1f04d2b7e9c1f88",
+        "key": "05e6bfa4b6805c46b772f35326b26b36"
     },
     {
         "name": "Hits HD",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/hits_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A8BB8-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "dac605bc197e442c93f4f08595a95100",
-        "key": "975e27ffc1b7949721ee3ccb4b7fd3e5"
+        "keyId": "6d2f8a1c9b5e4c7da1f03e7b9d6c2a55",
+        "key": "37c9835795779f8d848a6119d3270c69"
     },
     {
         "name": "Hits Now",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_hitsnow/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/68C2D95A-A2A4-4C2B-93BE-41893C61210C/0-16x9.jpg?width=1980",
-        "keyId": "14439a1b7afc4527bb0ebc51cf11cbc1",
-        "key": "92b0287c7042f271b266cc11ab7541f1"
+        "keyId": "f9c3d6b18a2e4d7f9e453b1a8c6d2f70",
+        "key": "ce8874347ec428c624558dcdc3575dd4"
     },
     {
         "name": "Lifetime",
@@ -501,8 +500,8 @@ const channels = [
         "name": "Tap TV",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_taptv_sd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55AC592-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "f6804251e90b4966889b7df94fdc621e",
-        "key": "55c3c014f2bd12d6bd62349658f24566"
+        "keyId": "5c1e7b9d2f6a4d8c8a55e9d2c7b1a344",
+        "key": "e72d21a22e89660ff0ec33627eb4ef35"
     },
     {
         "name": "Tap Edge",
@@ -515,15 +514,15 @@ const channels = [
         "name": "Rock Action",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/dr_rockextreme/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A6520-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "0f852fb8412b11edb8780242ac120002",
-        "key": "4cbc004d8c444f9f996db42059ce8178"
+        "keyId": "8d2a6f1c9b7e4c3da5f01e7b9c6d2f44",
+        "key": "23841651ebf49fa03fdfcd7b43337f87"
     },
     {
         "name": "Rock Entertainment",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/dr_rockentertainment/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A6C78-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1920",
-        "keyId": "e4ee0cf8ca9746f99af402ca6eed8dc7",
-        "key": "be2a096403346bc1d0bb0f812822bb62"
+        "keyId": "a8b2d6f14c9e4d7a8f552c1e9b7d6a30",
+        "key": "b61a33a4281e7c8e68b24b9af466f7b4"
     },
     {
         "name": "Asian Food Network (Cignal)",
@@ -536,29 +535,29 @@ const channels = [
         "name": "Food Network",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_foodnetwork_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A9496-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "b7299ea0af8945479cd2f287ee7d530e",
-        "key": "b8ae7679cf18e7261303313b18ba7a14"
+        "keyId": "4a9d2f7c1e6b4c8d8a55d7b1e3f0c926",
+        "key": "2e62531bdb450480a18197b14f4ebc77"
     },
     {
         "name": "HGTV",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/hgtv_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A858C-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "f0e3ab943318471abc8b47027f384f5a",
-        "key": "13802a79b19cc3485d2257165a7ef62a"
+        "keyId": "f1e8c2d97a3b4f5d8c669d1a2b7e4c30",
+        "key": "03aaa7dcf893e6b934aeb3c46f9df5b9"
     },
     {
         "name": "Fashion TV",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/fashiontvhd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A9D06-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "971ebbe2d887476398e97c37e0c5c591",
-        "key": "472aa631b1e671070a4bf198f43da0c7"
+        "keyId": "9d7c1f2a6b4e4a8d8f33c1e5b7d2a960",
+        "key": "3a18c535c52db7c79823f59036a9d195"
     },
     {
         "name": "History HD",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/dr_historyhd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A9C02-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "a7724b7ca2604c33bb2e963a0319968a",
-        "key": "6f97e3e2eb2bade626e0281ec01d3675"
+        "keyId": "e2a8c7d15b9f4d6a9c101f7e3b2d8a44",
+        "key": "397ca914a73b1e00bc94ed9eccf9c258"
     },
     {
         "name": "Discovery Channel",
@@ -571,8 +570,8 @@ const channels = [
         "name": "Animal Planet",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_animal_planet_sd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A57B0-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "436b69f987924fcbbc06d40a69c2799a",
-        "key": "c63d5b0d7e52335b61aeba4f6537d54d"
+        "keyId": "1c9f7a6d3b2e4e5d8a61f4d0c2b9e813",
+        "key": "b8f52451c67a2b54f272543eef45b621"
     },
     {
         "name": "Travel Channel",
@@ -606,15 +605,15 @@ const channels = [
         "name": "Bloomberg",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/bloomberg_sd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55AA47C-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "ef7d9dcfb99b406cb79fb9f675cba426",
-        "key": "b24094f6ca136af25600e44df5987af4"
+        "keyId": "3b8e6d1f2c9a4f7d9a556c1e7b2d8f90",
+        "key": "09f0bd803966c4befbd239cfa75efe23"
     },
     {
         "name": "ABC Australia",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/abc_aus/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55ACCD6-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "389497f9f8584a57b234e27e430e04b7",
-        "key": "3b85594c7f88604adf004e45c03511c0"
+        "keyId": "d6f1a8c29b7e4d5a8f332c1e9d7b6a90",
+        "key": "790bd17b9e623e832003a993a2de1d87"
     },
     {
         "name": "CCTV-4",
@@ -655,22 +654,22 @@ const channels = [
         "name": "Lotus Macau",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/lotusmacau_prd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/C6AB65CE-37A0-4040-ABA7-021C669DBEE1/0-16x9.jpg?width=1980",
-        "keyId": "60dc692e64ea443a8fb5ac186c865a9b",
-        "key": "01bdbe22d59b2a4504b53adc2f606cc1"
+        "keyId": "9a7c2d1f4e8b4a6d8f301b5c9e7d2a44",
+        "key": "ca88469cabc18aa33d1f2e46a6efb4f7"
     },
     {
         "name": "KIX HD",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/kix_hd1/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55A7EE8-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
-        "keyId": "a8d5712967cd495ca80fdc425bc61d6b",
-        "key": "f248c29525ed4c40cc39baeee9634735"
+        "keyId": "c9d4b7a18e2f4d6c9a103f5b7e1c2d88",
+        "key": "7f3139092bf87d8aa51ee40e6294d376"
     },
     {
         "name": "tvUP",
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/tvup_prd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/C0B38DBD-BE4F-4044-9D85-D827D8DC64C4/0-16x9.jpg?width=1980",
-        "keyId": "83e813ccd4ca4837afd611037af02f63",
-        "key": "a97c515dbcb5dcbc432bbd09d15afd41"
+        "keyId": "e6d1f4a82b9c4f7e9a135c8d7b0e1f26",
+        "key": "a5ec27f2fd8e81e7ca224b22a326c8f2"
     }
 ];
 

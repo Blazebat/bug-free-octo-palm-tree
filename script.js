@@ -453,7 +453,8 @@ const channels = [
         "url": "https://qp-pldt-live-bpk-01-prod.akamaized.net/bpk-tv/cg_warnerhd/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55ABA02-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1980",
         "keyId": "7f2a9c6d1e5b4c8a8d10a2b7e1c9f344",
-        "key": "ae3d135d5ddd9e8f3a7bbfbfae0e40d1},
+        "key": "ae3d135d5ddd9e8f3a7bbfbfae0e40d1"
+    },
     {
         "name": "TVN Premium",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_tvnpre/default/index.mpd",

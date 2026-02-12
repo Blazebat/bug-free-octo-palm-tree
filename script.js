@@ -396,8 +396,8 @@ const channels = [
         "name": "Knowledge Channel",
         "url": "https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/knowledge_channel/default/index.mpd",
         "logo": "https://qp-pldt-image-resizer-cloud-prod.akamaized.net/image/E55ADA5A-C9E1-11EC-9D64-0242AC120002/0-16x9.jpg?width=1000",
-        "keyId": "2052f6b844aa53144bb32f0e41295106",
-        "key": "c7d2b1e94f8a4d6c8a106b3d1f9c2e55"
+        "keyId": "c7d2b1e94f8a4d6c8a106b3d1f9c2e55",
+        "key": "2052f6b844aa53144bb32f0e41295106"
     },
     {
         "name": "Animax",
